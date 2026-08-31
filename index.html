@@ -664,11 +664,11 @@
         </div>
       </div>
       <div class="quick-chips">
-        <span class="chip" onclick="sendChip(this)">What Pokémon cards are worth money?</span>
-        <span class="chip" onclick="sendChip(this)">How does card grading work?</span>
-        <span class="chip" onclick="sendChip(this)">What do you buy?</span>
-        <span class="chip" onclick="sendChip(this)">How do I sell my collection?</span>
+        <span class="chip" onclick="sendChip(this)">What graded cards do you have?</span>
+        <span class="chip" onclick="sendChip(this)">Do you have any Michael Jordan cards?</span>
+        <span class="chip" onclick="sendChip(this)">What hobby boxes are in stock?</span>
         <span class="chip" onclick="sendChip(this)">What are your hours?</span>
+        <span class="chip" onclick="sendChip(this)">How does card grading work?</span>
       </div>
       <div class="bot-input-row">
         <input id="botInput" type="text" placeholder="Ask about cards, grading, values, or our shop…" onkeydown="if(event.key==='Enter')sendMsg()" />
@@ -709,7 +709,44 @@
 
 <!-- ── AI BOT SCRIPT ── -->
 <script>
-  const SHOP_CONTEXT = `You are the Elburn Card Shop bot. The shop is located at 940 N Main St, Elburn IL 60119. Open 24 hours, 7 days a week. Phone: (630) 365-6671. We buy, sell, and trade: Pokémon, Magic: The Gathering, One Piece, Sports Cards (all sports), Graded Slabs (PSA/BGS/CGC), Non-Sports, Pop Culture, Disney, Wrestling, UFS, and more. Be friendly, helpful, and concise. Answer both general hobby questions (card values, grading, how to sell, market trends) and questions about our specific shop.`;
+  const SHOP_CONTEXT = `You are the Elburn Card Shop bot. The shop is located at 940 N Main St, Elburn IL 60119. Open 24 hours, 7 days a week. Phone: (630) 365-6671. We buy, sell, and trade: Pokémon, Magic: The Gathering, One Piece, Sports Cards (all sports), Graded Slabs (PSA/BGS/CGC), Non-Sports, Pop Culture, Disney, Wrestling, UFS, and more. Be friendly, helpful, and concise. Answer both general hobby questions (card values, grading, how to sell, market trends) and questions about our specific shop. When asked about what graded cards or hobby boxes we have in stock, use the live inventory below to answer specifically.
+
+LIVE INVENTORY:
+GRADED SINGLES IN STOCK (79 cards):
+All-Star Game: PSA 9 1991 Fleer #236 $33.99
+Barry Sanders: PSA 9 1995 Playoff Absolute SSD #20 $30.99 | PSA 9 1991 Score #20 $33.99 | PSA 9 1992 Fleer #123 $25.99
+Brian Urlacher: BGS 8.5 2000 UD Ionix #97 RC /2000 $88.99 | PSA 10 2001 UD #31 $150.99
+Chicago Bulls: PSA 6 1996 Topps #72 Bulls Commemorative $34.99
+Chicago Bulls 3-Peat: PSA 8 1993 UD 3rd Straight #SP4 $27.99
+Dan Hampton: PSA 9 1990 Topps Tiffany #377 $48.99 | PSA 7 1985 Topps All Pro #30 $22.99
+Donald J. Trump: CGC 9 2022 Leaf Special Release RC2022 #RC14 $89.99
+Greg Maddux: PSA 9 1992 Studio #15 $22.99 | PSA 9 1999 Topps #16 $22.99
+Horace Grant: PSA 9 1989 Hoops #242 $37.99 | PSA 9 1989 Hoops #242 $30.99
+Joe Dumars / Michael Jordan: PSA 8 1996 Collector's Choice #363 $44.99
+Joe Montana: PSA 9 1991 Fleer ERR #408 $27.99 | PSA 9 1991 Score #1 $37.99
+Maddux/Wood/Clemens: PSA 9 1999 Topps #460 $22.99
+Magic Johnson / Michael Jordan: PSA 7 1991 Hoops #542 $49.99
+Mark Grace: PSA 9 1990 UD #128 $30.99 | PSA 9 1991 Ultra #61 $22.99 | PSA 9 1993 Leaf #198 $22.99 | PSA 9 1997 Select #37 $37.99
+Michael Jordan: PSA 9 1993 UD #193 $48.99 | CGC 9 1996 Topps #139 $37.99 | CGC 9 1992 Topps #141 $33.99 | CGC 9 1990 Skybox #41 $43.99 | PSA 8 1998 UD Ionix #3 $44.99 (x3) | PSA 7 1993 UD #198 $39.99 | PSA 8 1991 Fleer #375 $39.99 (x3) | PSA 6 1991 Fleer #375 $29.99 | PSA 7 1991 Hoops #536 $39.99 | PSA 8 1991 Hoops #543 $49.99 | BGS 7.5 1998 UD Choice Year in Review #189 $39.99 | CGC 8 1993 UD #23 $39.99 | PSA 8 1991 Fleer #220 $39.99 (x2) | PSA 7 1991 Fleer #220 $34.99 | CGC 8.5 1992 Topps #205 $44.99 | CSG 8 1993 UD #237 $34.99 | PSA 7 1990 Hoops #223 $39.99 | PSA 6 1992 Hoops USA #341 $34.99 | PSA 6 1995 Collector's Choice #45 $34.99 | PSA 6 1998 UD Living Legend #68 $34.99 | PSA 7 2009 UD #241 $39.99 | SGC 8 1990 NBA Hoops #65 $44.99 | SGC 7 1991 UD #44 $34.99 | CSG 8.5 1992 UD #488 $39.99 | PSA 8 1993 Topps #64 $44.99 | PSA 8 1999 UD MVP #184 $44.99 | SGC 7.5 1992 Fleer #32 $39.99 | PSA 6 1991 UD Award Winner Hologram (Scoring) $59.99 | PSA 6 1992 UD Award Winner Hologram #AW1 $64.99 | CGC 8 1999 UD MJ Athlete of the Century #UD6 $54.99
+Michael Jordan (UNC Tar Heels): PSA 6 1990 College Collection UNC #44 $39.99
+Michael Jordan / Scottie Pippen: PSA 7 1992 UD #62 $44.99
+Michael Knight (Knight Rider): CGC 5.5 1983 Donruss #23 $19.99 | PSA 9 1983 Donruss #23 (Using Watch) $89.99
+Rice/Montana: PSA 9 1990 Fleer #397 SB MVPs $30.99
+Ryne Sandberg: PSA 9 1993 Score #530 $22.99 | PSA 9 1991 Donruss #504 $30.99 | SGC 9 1991 O-Pee-Chee #7 $30.99
+Sammy Sosa: PSA 9 1990 Leaf #220 RC $25.99 | PSA 9 1991 UD #265 $15.99 | BGS 8.5 1990 Score #558 $15.99
+Scottie Pippen: PSA 9 1992 Stadium Club #367 $30.99 | PSA 9 1992 Stadium Club Members Only #367 $30.99 | PSA 9 1992 Fleer #36 OC $33.99 | PSA 9 1990 Fleer #30 $37.99
+Walter Payton: PSA 6 1984 Topps #228 $30.99 | PSA 6 1981 Topps #400 $27.99 | BGS 8 1986 Topps Team Leaders #9 $34.99
+Wayne Gretzky: PSA 9 1990 Topps #199 $52.99 | CSG 9 1990 Score #1 $37.99
+
+HOBBY BOXES (8 sealed):
+2025 Topps Chrome NFL: $899/box $44.99/pack — 1 Auto or Auto Relic per box
+2025 Topps Resurgence NFL: $540/box $44.99/pack — 2 Autographs per box
+2025-26 Topps Chrome Cactus Jack NBA: $780/box $39.99/pack — Cactus Ink Autos, Superfractor chase
+2026 Topps Finest MLB: $720/box $119.99/pack — 2 Chrome Autographs per box
+2026 Topps Flagship NFL: $240/box $11.99/pack — 1 Auto or Relic per box
+2026 Topps Series 2 MLB: $204/box $9.99/pack — 1 Auto or Relic per box
+2025 Panini Donruss Optic NFL: $120/box $5.99/pack — Rated Rookies, Downtowns, Uptowns
+2025-26 Topps Chrome Update NBA: $1200/box $59.99/pack — 1 Auto per box, Cooper Flagg/Wemby RC chase`;
 
   const chatWindow = document.getElementById('chatWindow');
   const botInput   = document.getElementById('botInput');
@@ -763,7 +800,15 @@
     { q: ['disney','lorcana'], a: "We carry Disney collectibles and pop culture cards. 🏰" },
     { q: ['value','worth','price','how much'], a: "Card values vary a lot based on condition, rarity, and market demand. For a specific card, the best sources are TCGplayer.com, eBay sold listings, and PSA's price guide. Or just bring it in — we're happy to take a look! 💎" },
     { q: ['bulk','collection','lot'], a: "We buy bulk collections! Whether it's a shoebox or a binder full, bring it in and we'll sort through it and make you an offer. We make the process easy. 📦" },
-    { q: ['hello','hi','hey','help'], a: "Hey there! Welcome to Elburn Card Shop 👋 Ask me anything about our shop, card values, grading, or the hobby. What can I help you with?" },
+    { q: ['hello','hi','hey','help'], a: "Hey there! Welcome to Elburn Card Shop 👋 Ask me anything about our shop, card values, grading, or the hobby — I can also tell you exactly what graded cards and hobby boxes we have in stock! What can I help you with?" },
+    { q: ['jordan','michael jordan','mj'], a: "We have a massive Michael Jordan collection — 39+ graded slabs! Prices range from $29.99 to $64.99. PSA 8s, CGC 9s, SGC 8s — Fleer, Hoops, UD, Topps, holograms, and more. Stop in or call (630) 365-6671 for specifics! 🐐" },
+    { q: ['graded','slabs','in stock','what do you have','inventory','do you have'], a: "We have 79 graded singles in stock! Heavy Chicago sports focus: 39 Michael Jordan cards, Scottie Pippen, Horace Grant, Walter Payton, Brian Urlacher, Mark Grace, Ryne Sandberg, Sammy Sosa, Wayne Gretzky, and more. PSA 6 through PSA 10. Prices $15.99–$150.99. Call (630) 365-6671 or stop in — open 24/7! 🏆" },
+    { q: ['hobby box','sealed box','booster box','topps chrome','panini','boxes'], a: "We have 8 sealed hobby boxes: Topps Chrome NFL ($899), Topps Chrome Update NBA ($1,200 — Cooper Flagg/Wemby RC!), Topps Resurgence NFL ($540), Cactus Jack NBA ($780), Topps Finest MLB ($720), Topps Flagship NFL ($240), Topps Series 2 MLB ($204), and Panini Optic NFL ($120). Individual packs available on select boxes!" },
+    { q: ['pippen','scottie'], a: "We have 4 Scottie Pippen graded slabs: PSA 9 1992 Stadium Club #367 ($30.99), PSA 9 Stadium Club Members Only ($30.99), PSA 9 1992 Fleer #36 OC ($33.99), and PSA 9 1990 Fleer #30 ($37.99). 🏀" },
+    { q: ['payton','walter','sweetness'], a: "We have 3 Walter Payton graded slabs: PSA 6 1984 Topps #228 ($30.99), PSA 6 1981 Topps #400 ($27.99), and BGS 8 1986 Topps Team Leaders #9 ($34.99). 🏈" },
+    { q: ['urlacher','brian'], a: "Two Brian Urlacher graded cards: BGS 8.5 2000 UD Ionix RC /2000 ($88.99) and a PSA 10 2001 UD #31 ($150.99) — our highest-grade card in stock! 🏈" },
+    { q: ['gretzky','wayne'], a: "We have 2 Wayne Gretzky graded slabs: PSA 9 1990 Topps #199 ($52.99) and CSG 9 1990 Score #1 ($37.99). 🏒" },
+    { q: ['cooper flagg','flagg','wemby','wembanyama'], a: "Chase Cooper Flagg and Wemby rookie cards in our 2025-26 Topps Chrome Update NBA hobby box — $1,200/box or $59.99/pack. One auto per box! 🏀" },
   ];
 
   function faqMatch(text) {
