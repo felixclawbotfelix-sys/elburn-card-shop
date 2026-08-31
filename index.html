@@ -800,7 +800,16 @@ HOBBY BOXES (8 sealed):
     { q: ['disney','lorcana'], a: "We carry Disney collectibles and pop culture cards. 🏰" },
     { q: ['value','worth','price','how much'], a: "Card values vary a lot based on condition, rarity, and market demand. For a specific card, the best sources are TCGplayer.com, eBay sold listings, and PSA's price guide. Or just bring it in — we're happy to take a look! 💎" },
     { q: ['bulk','collection','lot'], a: "We buy bulk collections! Whether it's a shoebox or a binder full, bring it in and we'll sort through it and make you an offer. We make the process easy. 📦" },
-    { q: ['hello','hi','hey','help'], a: "Hey there! Welcome to Elburn Card Shop 👋 Ask me anything about our shop, card values, grading, or the hobby — I can also tell you exactly what graded cards and hobby boxes we have in stock! What can I help you with?" },
+    { q: ['hello','hi','hey','help','sup','yo'], a: "Hey! Welcome to Elburn Card Shop 👋 I can tell you what graded cards and hobby boxes we have in stock, answer hobby questions, or give you shop info. What are you looking for?" },
+    { q: ['price','cost','how much','charge'], a: "Graded singles run $15.99–$150.99 depending on the card and grade. Hobby boxes range from $120 (Panini Optic) to $1,200 (Topps Chrome Update NBA). Individual packs available on select boxes. No prices on sealed Pokémon — come in and we'll sort you out!" },
+    { q: ['pokemon','pikachu','charizard','paldea','surging','stellar','journey','destined','mega'], a: "We carry a huge Pokémon selection — booster bundles, ETBs, half booster boxes, tins, figure collections, and individual booster packs ($2.99/10-count, $12.99/50-count). Sets include Surging Sparks, Journey Together, Destined Rivals, Stellar Crown, Paldea Evolved, Mega Evolution series, and more! ⚡" },
+    { q: ['mtg','magic','gathering'], a: "We carry Magic: The Gathering — stop in to check current singles and sealed stock. We also buy MTG collections! ⚔️" },
+    { q: ['one piece','op15','op-15','kamirama','kami'], a: "We have the One Piece Adventure on Kami's Island Booster Box (OP15-EB04) in stock! 🏴‍☠️" },
+    { q: ['baseball','topps','mlb'], a: "Baseball in stock: 2025 Topps Update Series, 2026 Topps Series 2 MLB hobby box ($204), 2026 Topps Finest MLB hobby box ($720 — 2 Chrome Autos!), and Baseball Cards 10-count packs ($2.99). ⚾" },
+    { q: ['football','nfl','panini','topps chrome nfl'], a: "Football in stock: 2025 Topps Chrome NFL hobby box ($899), 2025 Topps Resurgence NFL ($540 — 2 autos!), 2026 Topps Flagship NFL ($240), 2025 Panini Donruss Optic NFL ($120). Plus graded Bears legends — Urlacher, Payton, Hampton, Montana, Sanders! 🏈" },
+    { q: ['basketball','nba','chrome update','cactus jack'], a: "Basketball in stock: 2025-26 Topps Chrome Update NBA hobby box ($1,200 — Cooper Flagg & Wemby RC chase!), Topps Chrome Cactus Jack NBA ($780). Plus 39 Michael Jordan graded slabs, Scottie Pippen, Horace Grant! 🏀" },
+    { q: ['chicago','bulls','bears','cubs','blackhawks'], a: "We have a strong Chicago sports section! 39 Michael Jordan slabs, Scottie Pippen (x4), Horace Grant (x2), Brian Urlacher PSA 10 ($150.99), Walter Payton (x3), Dan Hampton (x2), Joe Montana, Barry Sanders, Mark Grace (x4), Ryne Sandberg (x3), Sammy Sosa (x3), Greg Maddux. All Chicago, all graded! 🏆" },
+    { q: ['sell','selling','cash','offer','bring in','collection'], a: "Bring it in! We make cash offers on the spot for singles, sealed product, collections, graded slabs, and bulk. No appointment needed — open 24/7. For large collections, call ahead at (630) 365-6671 so we can set aside time. 💵" },
     { q: ['jordan','michael jordan','mj'], a: "We have a massive Michael Jordan collection — 39+ graded slabs! Prices range from $29.99 to $64.99. PSA 8s, CGC 9s, SGC 8s — Fleer, Hoops, UD, Topps, holograms, and more. Stop in or call (630) 365-6671 for specifics! 🐐" },
     { q: ['graded','slabs','in stock','what do you have','inventory','do you have'], a: "We have 79 graded singles in stock! Heavy Chicago sports focus: 39 Michael Jordan cards, Scottie Pippen, Horace Grant, Walter Payton, Brian Urlacher, Mark Grace, Ryne Sandberg, Sammy Sosa, Wayne Gretzky, and more. PSA 6 through PSA 10. Prices $15.99–$150.99. Call (630) 365-6671 or stop in — open 24/7! 🏆" },
     { q: ['hobby box','sealed box','booster box','topps chrome','panini','boxes'], a: "We have 8 sealed hobby boxes: Topps Chrome NFL ($899), Topps Chrome Update NBA ($1,200 — Cooper Flagg/Wemby RC!), Topps Resurgence NFL ($540), Cactus Jack NBA ($780), Topps Finest MLB ($720), Topps Flagship NFL ($240), Topps Series 2 MLB ($204), and Panini Optic NFL ($120). Individual packs available on select boxes!" },
@@ -839,34 +848,8 @@ HOBBY BOXES (8 sealed):
       return;
     }
 
-    // Fall back to AI for complex questions
-    history.push({ role: 'user', content: text });
-    addTyping();
-
-    try {
-      const res = await fetch('https://text.pollinations.ai/openai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'openai',
-          messages: [
-            { role: 'system', content: SHOP_CONTEXT },
-            ...history
-          ],
-          max_tokens: 300,
-          temperature: 0.7
-        })
-      });
-
-      const data = await res.json();
-      removeTyping();
-      const reply = data?.choices?.[0]?.message?.content || "Great question! For the most accurate answer, give us a call at (630) 365-6671 or stop in — we're open 24/7!";
-      history.push({ role: 'assistant', content: reply });
-      addMsg('bot', reply);
-    } catch(e) {
-      removeTyping();
-      addMsg('bot', "Great question! Give us a call at (630) 365-6671 or stop in — we're open 24/7 and happy to help!");
-    }
+    // No API match — give a helpful catch-all
+    addMsg('bot', "Great question! We carry Pokémon, MTG, One Piece, Sports Cards, Graded Slabs, Disney, Wrestling, UFS & more — plus 79 graded singles and 8 sealed hobby boxes in stock right now. Stop in anytime (open 24/7!) or call us at (630) 365-6671 and we'll help you out. 🃏");
     botSend.disabled = false;
     botInput.focus();
   }
