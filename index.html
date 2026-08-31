@@ -685,6 +685,35 @@
     if (t) t.remove();
   }
 
+  // ── FAQ ENGINE ──
+  const FAQ = [
+    { q: ['hours','open','close','when','time'], a: "We're open 24 hours a day, 7 days a week, 365 days a year — including all holidays! 🕐" },
+    { q: ['location','address','where','directions','find'], a: "We're located at 940 N Main St, Elburn, IL 60119. Easy to find — right on Main Street! 📍" },
+    { q: ['phone','call','contact','number','text'], a: "You can reach us at (630) 365-6671 — call or text anytime!" },
+    { q: ['buy','purchase','sell to you','selling','cash offer','bring in'], a: "We buy singles, sealed product, graded slabs, collections, and bulk! Bring it in and we'll make you a fair cash offer on the spot. 💵" },
+    { q: ['sell','for sale','in stock','inventory','have','carry'], a: "We carry Pokémon, Magic: The Gathering, One Piece, Sports Cards, Graded Slabs (PSA/BGS/CGC), Non-Sports, Pop Culture, Disney, Wrestling, UFS, and more. Stop in to browse! 🃏" },
+    { q: ['trade','trade-in','swap'], a: "Yes! We accept trade-ins toward store credit or other items in our inventory. Bring in your cards and let's make a deal. 🔄" },
+    { q: ['pokemon','pikachu','charizard'], a: "We buy, sell, and trade Pokémon cards — singles, sealed packs, booster boxes, and collections. Vintage Base Set to the latest sets! ⚡" },
+    { q: ['mtg','magic','gathering','commander'], a: "We carry Magic: The Gathering singles, sealed product, and collections. Commander, Modern, Legacy — bring it in! ⚔️" },
+    { q: ['sports','baseball','football','basketball','nba','nfl','mlb'], a: "We deal in all major sports cards — baseball, football, basketball, hockey, and more. Raw and graded. 🏈" },
+    { q: ['graded','psa','bgs','cgc','slab'], a: "We buy and sell graded slabs from PSA, BGS, CGC, and other services. Great way to invest in top-condition cards! 🏆" },
+    { q: ['grade','grading','send','submit'], a: "Card grading is the process of sending your card to a professional company (PSA, BGS, CGC) who grades it 1–10 based on condition and seals it in a tamper-proof case. Graded cards typically sell for more. Ask us in-store for advice on which cards are worth grading!" },
+    { q: ['one piece','luffy','zoro'], a: "We carry One Piece TCG — one of the hottest games right now! 🏴‍☠️ Singles and sealed product available." },
+    { q: ['wrestling','wwe'], a: "We carry wrestling cards including WWE and other promotions. 🥊" },
+    { q: ['disney','lorcana'], a: "We carry Disney collectibles and pop culture cards. 🏰" },
+    { q: ['value','worth','price','how much'], a: "Card values vary a lot based on condition, rarity, and market demand. For a specific card, the best sources are TCGplayer.com, eBay sold listings, and PSA's price guide. Or just bring it in — we're happy to take a look! 💎" },
+    { q: ['bulk','collection','lot'], a: "We buy bulk collections! Whether it's a shoebox or a binder full, bring it in and we'll sort through it and make you an offer. We make the process easy. 📦" },
+    { q: ['hello','hi','hey','help'], a: "Hey there! Welcome to Elburn Card Shop 👋 Ask me anything about our shop, card values, grading, or the hobby. What can I help you with?" },
+  ];
+
+  function faqMatch(text) {
+    const lower = text.toLowerCase();
+    for (const entry of FAQ) {
+      if (entry.q.some(kw => lower.includes(kw))) return entry.a;
+    }
+    return null;
+  }
+
   let history = [];
 
   async function sendMsg() {
@@ -693,21 +722,32 @@
     botInput.value = '';
     botSend.disabled = true;
     addMsg('user', text);
+
+    // Try FAQ first — instant, no API needed
+    const faqAnswer = faqMatch(text);
+    if (faqAnswer) {
+      setTimeout(() => {
+        addMsg('bot', faqAnswer);
+        botSend.disabled = false;
+        botInput.focus();
+      }, 400);
+      return;
+    }
+
+    // Fall back to AI for complex questions
     history.push({ role: 'user', content: text });
     addTyping();
 
     try {
-      const messages = [
-        { role: 'system', content: SHOP_CONTEXT },
-        ...history
-      ];
-
       const res = await fetch('https://text.pollinations.ai/openai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: 'openai',
-          messages,
+          messages: [
+            { role: 'system', content: SHOP_CONTEXT },
+            ...history
+          ],
           max_tokens: 300,
           temperature: 0.7
         })
@@ -715,12 +755,12 @@
 
       const data = await res.json();
       removeTyping();
-      const reply = data?.choices?.[0]?.message?.content || "Sorry, I couldn't get an answer right now. Call us at (630) 365-6671!";
+      const reply = data?.choices?.[0]?.message?.content || "Great question! For the most accurate answer, give us a call at (630) 365-6671 or stop in — we're open 24/7!";
       history.push({ role: 'assistant', content: reply });
       addMsg('bot', reply);
     } catch(e) {
       removeTyping();
-      addMsg('bot', "I'm having trouble connecting right now. Please call us at (630) 365-6671 or stop by — we're open 24/7!");
+      addMsg('bot', "Great question! Give us a call at (630) 365-6671 or stop in — we're open 24/7 and happy to help!");
     }
     botSend.disabled = false;
     botInput.focus();
