@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Full graded card inventory at Elburn Card Shop — 79 PSA/BGS/CGC/SGC/CSG slabs in stock. Michael Jordan, Walter Payton, Brian Urlacher, Wayne Gretzky, Ryne Sandberg and more. 940 N Main St, Elburn IL 60119. Open 24/7." />
+  <title>Graded Inventory — Elburn Card Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:    #F5C842;
+      --gold-dk: #D4A017;
+      --dark:    #1A1A2E;
+      --dark2:   #16213E;
+      --accent:  #E94560;
+      --white:   #FFFFFF;
+      --off:     #F8F8F8;
+      --gray:    #555555;
+      --light:   #EEEEEE;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #222; background: var(--white); }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, #0F3460 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 48px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(245,200,66,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dk) 100%);
+      font-size: 2rem;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 24px rgba(245,200,66,0.4);
+      text-decoration: none;
+    }
+    header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 900; line-height: 1.15; }
+    header h1 span { color: var(--gold); }
+    header p.tagline { font-size: 1rem; color: rgba(255,255,255,0.7); margin-top: 8px; }
+    .back-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--dark);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover, nav a.active { background: rgba(245,200,66,0.15); color: var(--gold); }
+
+    /* ── CONTROLS ── */
+    .controls {
+      max-width: 1100px;
+      margin: 32px auto 0;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .controls input[type="text"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 14px;
+      border: 2px solid var(--light);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .controls input[type="text"]:focus { border-color: var(--gold); }
+    .filter-btn {
+      padding: 9px 16px;
+      border: 2px solid var(--light);
+      border-radius: 8px;
+      background: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .filter-btn:hover { border-color: var(--gold); color: var(--gold-dk); }
+    .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+    #result-count {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-left: auto;
+    }
+
+    /* ── TABLE ── */
+    .table-wrap {
+      max-width: 1100px;
+      margin: 20px auto 48px;
+      padding: 0 16px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    thead th {
+      background: var(--dark);
+      color: var(--gold);
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+    }
+    thead th:hover { background: #0F3460; }
+    thead th .sort-arrow { margin-left: 4px; opacity: 0.5; }
+    thead th.sorted .sort-arrow { opacity: 1; }
+    tbody tr {
+      border-bottom: 1px solid var(--light);
+      transition: background 0.15s;
+    }
+    tbody tr:hover { background: #FFFBEA; }
+    tbody td {
+      padding: 11px 14px;
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+    tbody td:first-child { font-weight: 600; color: var(--gray); font-size: 0.78rem; }
+    .player-name { font-weight: 700; color: #111; }
+    .card-set { color: var(--gray); font-size: 0.82rem; }
+    .grade-badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .grade-psa  { background: #1A6BB5; color: #fff; }
+    .grade-bgs  { background: #B5451A; color: #fff; }
+    .grade-cgc  { background: #1AB57A; color: #fff; }
+    .grade-sgc  { background: #7C1AB5; color: #fff; }
+    .grade-csg  { background: #B5A31A; color: #fff; }
+    .sport-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: var(--light);
+      color: var(--gray);
+    }
+    .price-cell {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+    .status-in { color: #1AB57A; font-weight: 700; font-size: 0.78rem; }
+
+    /* ── EMPTY STATE ── */
+    #no-results {
+      display: none;
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--gray);
+      font-size: 1rem;
+    }
+
+    /* ── SUMMARY STRIP ── */
+    .summary-strip {
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+      padding: 28px 20px;
+    }
+    .summary-strip p { font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.8; }
+    .summary-strip strong { color: var(--gold); }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .hide-mobile { display: none; }
+      tbody td { padding: 9px 10px; }
+      .controls { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo-mark" href="index.html">🃏</a>
+  <h1>Graded Card <span>Inventory</span></h1>
+  <p class="tagline">79 slabs in stock · PSA · BGS · CGC · SGC · CSG · All prices include slab</p>
+  <a class="back-link" href="index.html">← Back to Elburn Card Shop</a>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="index.html#bst">Buy/Sell/Trade</a>
+  <a href="index.html#hobby-boxes">Hobby Boxes</a>
+  <a href="graded-inventory.html" class="active">Graded Inventory</a>
+  <a href="index.html#ai-bot-section">Ask the Bot</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<!-- ── CONTROLS ── -->
+<div class="controls">
+  <input type="text" id="search" placeholder="🔍  Search player, set, year…" oninput="filterTable()" />
+  <button class="filter-btn active" onclick="setFilter('all',this)">All (79)</button>
+  <button class="filter-btn" onclick="setFilter('Basketball',this)">🏀 Basketball (47)</button>
+  <button class="filter-btn" onclick="setFilter('Football',this)">🏈 Football (14)</button>
+  <button class="filter-btn" onclick="setFilter('Baseball',this)">⚾ Baseball (13)</button>
+  <button class="filter-btn" onclick="setFilter('Hockey',this)">🏒 Hockey (2)</button>
+  <button class="filter-btn" onclick="setFilter('Pop Culture',this)">🎬 Pop Culture (2)</button>
+  <button class="filter-btn" onclick="setFilter('Politics',this)">🗳️ Politics (1)</button>
+  <span id="result-count">79 cards shown</span>
+</div>
+
+<!-- ── TABLE ── -->
+<div class="table-wrap">
+  <table id="inventory-table">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">SKU <span class="sort-arrow">↕</span></th>
+        <th onclick="sortTable(1)">Player / Card <span class="sort-arrow">↕</span></th>
+        <th onclick="sortTable(2)" class="hide-mobile">Sport <span class="sort-arrow">↕</span></th>
+        <th onclick="sortTable(3)" class="hide-mobile">Year <span class="sort-arrow">↕</span></th>
+        <th onclick="sortTable(4)">Grade <span class="sort-arrow">↕</span></th>
+        <th onclick="sortTable(5)">Price <span class="sort-arrow">↕</span></th>
+        <th class="hide-mobile">Status</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+  </table>
+  <div id="no-results">No cards match your search. Try a different player or sport.</div>
+</div>
+
+<div class="summary-strip">
+  <p>
+    <strong>79 graded cards in stock</strong> · Prices from <strong>$15.99</strong> to <strong>$150.99</strong><br>
+    All cards available for in-store viewing 24/7 · Local pickup at 940 N Main St, Elburn IL 60119<br>
+    Questions? Call <strong>(630) 365-6671</strong> or stop in anytime
+  </p>
+  <a class="cta-btn" href="tel:+16303656671">📞 Call Us</a>
+  &nbsp;
+  <a class="cta-btn" href="index.html#ai-bot-section" style="background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.3);">💬 Ask the Bot</a>
+</div>
+
+<footer>
+  <p>© 2026 Elburn Card Shop · 940 N Main St, Elburn IL 60119 · Open 24/7 · <a href="tel:+16303656671">(630) 365-6671</a></p>
+</footer>
+
+<script>
+  // ── INVENTORY DATA ──
+  const INVENTORY = [
+    { sku:"G1-01", player:"Brian Urlacher", set:"2000 UD Ionix #97 RC /2000", sport:"Football", year:2000, grade:"BGS 8.5", grader:"BGS", price:88.99 },
+    { sku:"G1-02", player:"Brian Urlacher", set:"2001 UD #31", sport:"Football", year:2001, grade:"PSA 10", grader:"PSA", price:150.99 },
+    { sku:"G1-03", player:"Dan Hampton", set:"1990 Topps Tiffany #377", sport:"Football", year:1990, grade:"PSA 9", grader:"PSA", price:48.99 },
+    { sku:"G1-04", player:"Dan Hampton", set:"1985 Topps All Pro #30", sport:"Football", year:1985, grade:"PSA 7", grader:"PSA", price:22.99 },
+    { sku:"G1-05", player:"Walter Payton", set:"1984 Topps #228", sport:"Football", year:1984, grade:"PSA 6", grader:"PSA", price:30.99 },
+    { sku:"G1-06", player:"Walter Payton", set:"1981 Topps #400", sport:"Football", year:1981, grade:"PSA 6", grader:"PSA", price:27.99 },
+    { sku:"G1-07", player:"Walter Payton", set:"1986 Topps Team Leaders #9", sport:"Football", year:1986, grade:"BGS 8", grader:"BGS", price:34.99 },
+    { sku:"G1-08", player:"Joe Montana", set:"1991 Fleer ERR #408", sport:"Football", year:1991, grade:"PSA 9", grader:"PSA", price:27.99 },
+    { sku:"G1-09", player:"Joe Montana", set:"1991 Score #1", sport:"Football", year:1991, grade:"PSA 9", grader:"PSA", price:37.99 },
+    { sku:"G1-10", player:"Rice / Montana", set:"1990 Fleer #397 Super Bowl MVPs", sport:"Football", year:1990, grade:"PSA 9", grader:"PSA", price:30.99 },
+    { sku:"G1-11", player:"Barry Sanders", set:"1995 Playoff Absolute SSD #20", sport:"Football", year:1995, grade:"PSA 9", grader:"PSA", price:30.99 },
+    { sku:"G1-12", player:"Barry Sanders", set:"1991 Score #20", sport:"Football", year:1991, grade:"PSA 9", grader:"PSA", price:33.99 },
+    { sku:"G1-13", player:"Barry Sanders", set:"1992 Fleer #123", sport:"Football", year:1992, grade:"PSA 9", grader:"PSA", price:25.99 },
+    { sku:"G1-14", player:"1991 Fleer All-Star Game #236", set:"1991 Fleer #236", sport:"Football", year:1991, grade:"PSA 9", grader:"PSA", price:33.99 },
+    { sku:"G1-15", player:"Michael Jordan", set:"1993 UD #193", sport:"Basketball", year:1993, grade:"PSA 9", grader:"PSA", price:48.99 },
+    { sku:"G1-16", player:"Michael Jordan", set:"1996 Topps #139", sport:"Basketball", year:1996, grade:"CGC 9", grader:"CGC", price:37.99 },
+    { sku:"G1-17", player:"Michael Jordan", set:"1992 Topps #141", sport:"Basketball", year:1992, grade:"CGC 9", grader:"CGC", price:33.99 },
+    { sku:"G1-18", player:"Michael Jordan", set:"1990 Skybox #41", sport:"Basketball", year:1990, grade:"CGC 9", grader:"CGC", price:43.99 },
+    { sku:"G1-19", player:"Scottie Pippen", set:"1992 Stadium Club #367", sport:"Basketball", year:1992, grade:"PSA 9", grader:"PSA", price:30.99 },
+    { sku:"G1-20", player:"Scottie Pippen", set:"1992 Stadium Club Members Only #367", sport:"Basketball", year:1992, grade:"PSA 9", grader:"PSA", price:30.99 },
+    { sku:"G1-21", player:"Scottie Pippen", set:"1992 Fleer #36 OC", sport:"Basketball", year:1992, grade:"PSA 9", grader:"PSA", price:33.99 },
+    { sku:"G1-22", player:"Scottie Pippen", set:"1990 Fleer #30", sport:"Basketball", year:1990, grade:"PSA 9", grader:"PSA", price:37.99 },
+    { sku:"G1-23", player:"Horace Grant", set:"1989 Hoops #242 (A)", sport:"Basketball", year:1989, grade:"PSA 9", grader:"PSA", price:37.99 },
+    { sku:"G1-24", player:"Horace Grant", set:"1989 Hoops #242 (B)", sport:"Basketball", year:1989, grade:"PSA 9", grader:"PSA", price:30.99 },
+    { sku:"G1-25", player:"Chicago Bulls 3-Peat", set:"1993 UD 3rd Straight #SP4", sport:"Basketball", year:1993, grade:"PSA 8", grader:"PSA", price:27.99 },
+    { sku:"G1-26", player:"Mark Grace", set:"1990 UD #128", sport:"Baseball", year:1990, grade:"PSA 9", grader:"PSA", price:30.99 },
+    { sku:"G1-27", player:"Mark Grace", set:"1991 Ultra #61", sport:"Baseball", year:1991, grade:"PSA 9", grader:"PSA", price:22.99 },
+    { sku:"G1-28", player:"Mark Grace", set:"1993 Leaf #198", sport:"Baseball", year:1993, grade:"PSA 9", grader:"PSA", price:22.99 },
+    { sku:"G1-29", player:"Mark Grace", set:"1997 Select #37", sport:"Baseball", year:1997, grade:"PSA 9", grader:"PSA", price:37.99 },
+    { sku:"G1-30", player:"Ryne Sandberg", set:"1993 Score #530", sport:"Baseball", year:1993, grade:"PSA 9", grader:"PSA", price:22.99 },
+    { sku:"G1-31", player:"Ryne Sandberg", set:"1991 Donruss #504", sport:"Baseball", year:1991, grade:"PSA 9", grader:"PSA", price:30.99 },
+    { sku:"G1-32", player:"Ryne Sandberg", set:"1991 O-Pee-Chee #7", sport:"Baseball", year:1991, grade:"SGC 9", grader:"SGC", price:30.99 },
+    { sku:"G1-33", player:"Sammy Sosa", set:"1990 Leaf #220 RC", sport:"Baseball", year:1990, grade:"PSA 9", grader:"PSA", price:25.99 },
+    { sku:"G1-34", player:"Sammy Sosa", set:"1991 UD #265", sport:"Baseball", year:1991, grade:"PSA 9", grader:"PSA", price:15.99 },
+    { sku:"G1-35", player:"Sammy Sosa", set:"1990 Score #558", sport:"Baseball", year:1990, grade:"BGS 8.5", grader:"BGS", price:15.99 },
+    { sku:"G1-36", player:"Greg Maddux", set:"1992 Studio #15", sport:"Baseball", year:1992, grade:"PSA 9", grader:"PSA", price:22.99 },
+    { sku:"G1-37", player:"Greg Maddux", set:"1999 Topps #16", sport:"Baseball", year:1999, grade:"PSA 9", grader:"PSA", price:22.99 },
+    { sku:"G1-38", player:"Maddux / Wood / Clemens", set:"1999 Topps #460", sport:"Baseball", year:1999, grade:"PSA 9", grader:"PSA", price:22.99 },
+    { sku:"G1-39", player:"Wayne Gretzky", set:"1990 Topps #199", sport:"Hockey", year:1990, grade:"PSA 9", grader:"PSA", price:52.99 },
+    { sku:"G1-40", player:"Wayne Gretzky", set:"1990 Score #1", sport:"Hockey", year:1990, grade:"CSG 9", grader:"CSG", price:37.99 },
+    { sku:"G2-01", player:"Michael Jordan", set:"1998 UD Ionix #3", sport:"Basketball", year:1998, grade:"PSA 8", grader:"PSA", price:44.99 },
+    { sku:"G2-02", player:"Michael Knight (Knight Rider)", set:"1983 Donruss #23", sport:"Pop Culture", year:1983, grade:"CGC 5.5", grader:"CGC", price:19.99 },
+    { sku:"G2-03", player:"Michael Jordan", set:"1998 UD Ionix #3", sport:"Basketball", year:1998, grade:"PSA 8", grader:"PSA", price:44.99 },
+    { sku:"G2-04", player:"Michael Jordan", set:"1991 UD International Award Winner Hologram (Scoring)", sport:"Basketball", year:1991, grade:"PSA 6", grader:"PSA", price:59.99 },
+    { sku:"G2-05", player:"Michael Jordan", set:"1993 UD #198", sport:"Basketball", year:1993, grade:"PSA 7", grader:"PSA", price:39.99 },
+    { sku:"G2-06", player:"Donald J. Trump", set:"2022 Leaf Special Release RC2022 #RC14", sport:"Politics", year:2022, grade:"CGC 9", grader:"CGC", price:89.99 },
+    { sku:"G2-07", player:"Michael Jordan", set:"1992 Topps #205", sport:"Basketball", year:1992, grade:"CGC 8.5", grader:"CGC", price:44.99 },
+    { sku:"G2-08", player:"Michael Jordan", set:"1991 Fleer #375", sport:"Basketball", year:1991, grade:"PSA 8", grader:"PSA", price:39.99 },
+    { sku:"G2-09", player:"Michael Jordan", set:"1991 Hoops #536", sport:"Basketball", year:1991, grade:"PSA 7", grader:"PSA", price:39.99 },
+    { sku:"G2-10", player:"Michael Jordan", set:"1998-99 UD Choice Year in Review #189", sport:"Basketball", year:1998, grade:"BGS 7.5", grader:"BGS", price:39.99 },
+    { sku:"G2-11", player:"Michael Jordan", set:"1993-94 UD #23", sport:"Basketball", year:1993, grade:"CGC 8", grader:"CGC", price:39.99 },
+    { sku:"G2-12", player:"Michael Jordan", set:"1991 Fleer #220", sport:"Basketball", year:1991, grade:"PSA 8", grader:"PSA", price:39.99 },
+    { sku:"G2-13", player:"Jordan / Joe Dumars", set:"1996 Collector's Choice #363", sport:"Basketball", year:1996, grade:"PSA 8", grader:"PSA", price:44.99 },
+    { sku:"G2-14", player:"Michael Jordan", set:"1991 Fleer #375", sport:"Basketball", year:1991, grade:"PSA 6", grader:"PSA", price:29.99 },
+    { sku:"G2-15", player:"Michael Jordan", set:"1998 UD Ionix #3", sport:"Basketball", year:1998, grade:"PSA 8", grader:"PSA", price:44.99 },
+    { sku:"G2-16", player:"Jordan / Scottie Pippen", set:"1992 UD #62", sport:"Basketball", year:1992, grade:"PSA 7", grader:"PSA", price:44.99 },
+    { sku:"G2-17", player:"Michael Jordan", set:"1993 UD #237", sport:"Basketball", year:1993, grade:"CSG 8", grader:"CSG", price:34.99 },
+    { sku:"G2-18", player:"Michael Jordan", set:"1992 UD Award Winner Hologram #AW1", sport:"Basketball", year:1992, grade:"PSA 6", grader:"PSA", price:64.99 },
+    { sku:"G2-19", player:"Michael Knight (Knight Rider) Using Watch", set:"1983 Donruss #23", sport:"Pop Culture", year:1983, grade:"PSA 9", grader:"PSA", price:89.99 },
+    { sku:"G2-20", player:"Michael Jordan / Sam Vincent", set:"1990 Hoops #223", sport:"Basketball", year:1990, grade:"PSA 7", grader:"PSA", price:39.99 },
+    { sku:"G2-21", player:"Michael Jordan", set:"1991 Fleer #375", sport:"Basketball", year:1991, grade:"PSA 8", grader:"PSA", price:39.99 },
+    { sku:"G2-22", player:"Michael Jordan", set:"1991 Fleer #220", sport:"Basketball", year:1991, grade:"PSA 7", grader:"PSA", price:34.99 },
+    { sku:"G2-23", player:"Michael Jordan", set:"1992 Hoops USA #341", sport:"Basketball", year:1992, grade:"PSA 6", grader:"PSA", price:34.99 },
+    { sku:"G2-24", player:"Michael Jordan", set:"1995 Collector's Choice #45", sport:"Basketball", year:1995, grade:"PSA 6", grader:"PSA", price:34.99 },
+    { sku:"G2-25", player:"Chicago Bulls", set:"1996 Topps #72 Bulls Commemorative", sport:"Basketball", year:1996, grade:"PSA 6", grader:"PSA", price:34.99 },
+    { sku:"G2-26", player:"Michael Jordan", set:"1998 UD MJ Living Legend #68", sport:"Basketball", year:1998, grade:"PSA 6", grader:"PSA", price:34.99 },
+    { sku:"G2-27", player:"Michael Jordan", set:"2009 UD #241", sport:"Basketball", year:2009, grade:"PSA 7", grader:"PSA", price:39.99 },
+    { sku:"G2-28", player:"Michael Jordan", set:"1990 NBA Hoops #65", sport:"Basketball", year:1990, grade:"SGC 8", grader:"SGC", price:44.99 },
+    { sku:"G2-29", player:"Michael Jordan", set:"1991 UD #44", sport:"Basketball", year:1991, grade:"SGC 7", grader:"SGC", price:34.99 },
+    { sku:"G2-30", player:"Michael Jordan (Tar Heels)", set:"1990 College Collection UNC #44", sport:"Basketball", year:1990, grade:"PSA 6", grader:"PSA", price:39.99 },
+    { sku:"G2-31", player:"Michael Jordan", set:"1991 Hoops #543", sport:"Basketball", year:1991, grade:"PSA 8", grader:"PSA", price:49.99 },
+    { sku:"G2-32", player:"Michael Jordan", set:"1999 UD MJ Athlete of the Century #UD6", sport:"Basketball", year:1999, grade:"CGC 8", grader:"CGC", price:54.99 },
+    { sku:"G2-33", player:"Michael Jordan", set:"1992 UD #488", sport:"Basketball", year:1992, grade:"CSG 8.5", grader:"CSG", price:39.99 },
+    { sku:"G2-34", player:"Michael Jordan", set:"1993 Topps #64", sport:"Basketball", year:1993, grade:"PSA 8", grader:"PSA", price:44.99 },
+    { sku:"G2-35", player:"Michael Jordan", set:"1999 UD MVP #184", sport:"Basketball", year:1999, grade:"PSA 8", grader:"PSA", price:44.99 },
+    { sku:"G2-36", player:"Michael Jordan", set:"1991 Fleer #375", sport:"Basketball", year:1991, grade:"PSA 8", grader:"PSA", price:39.99 },
+    { sku:"G2-37", player:"Michael Jordan", set:"1992 Fleer #32", sport:"Basketball", year:1992, grade:"SGC 7.5", grader:"SGC", price:39.99 },
+    { sku:"G2-38", player:"Michael Jordan", set:"1991 Fleer #220", sport:"Basketball", year:1991, grade:"PSA 8", grader:"PSA", price:39.99 },
+    { sku:"G2-39", player:"Magic Johnson / Michael Jordan", set:"1991 Hoops #542", sport:"Basketball", year:1991, grade:"PSA 7", grader:"PSA", price:49.99 },
+  ];
+
+  // ── STATE ──
+  let activeFilter = 'all';
+  let sortCol = -1;
+  let sortAsc = true;
+
+  function graderClass(g) {
+    const m = g.toLowerCase();
+    if (m.startsWith('psa')) return 'grade-psa';
+    if (m.startsWith('bgs')) return 'grade-bgs';
+    if (m.startsWith('cgc')) return 'grade-cgc';
+    if (m.startsWith('sgc')) return 'grade-sgc';
+    if (m.startsWith('csg')) return 'grade-csg';
+    return 'grade-psa';
+  }
+
+  function sportEmoji(s) {
+    const m = { Basketball:'🏀', Football:'🏈', Baseball:'⚾', Hockey:'🏒', 'Pop Culture':'🎬', Politics:'🗳️' };
+    return m[s] || '🃏';
+  }
+
+  function renderTable() {
+    const q = document.getElementById('search').value.toLowerCase();
+    const tbody = document.getElementById('table-body');
+    let rows = INVENTORY.filter(c => {
+      const matchSport = activeFilter === 'all' || c.sport === activeFilter;
+      const matchQ = !q || [c.sku, c.player, c.set, c.sport, c.grade].join(' ').toLowerCase().includes(q);
+      return matchSport && matchQ;
+    });
+
+    if (sortCol >= 0) {
+      const keys = ['sku','player','sport','year','grade','price'];
+      rows.sort((a,b) => {
+        let va = a[keys[sortCol]], vb = b[keys[sortCol]];
+        if (typeof va === 'string') va = va.toLowerCase(), vb = vb.toLowerCase();
+        return sortAsc ? (va > vb ? 1 : -1) : (va < vb ? 1 : -1);
+      });
+    }
+
+    document.getElementById('result-count').textContent = rows.length + ' card' + (rows.length !== 1 ? 's' : '') + ' shown';
+    document.getElementById('no-results').style.display = rows.length === 0 ? 'block' : 'none';
+
+    tbody.innerHTML = rows.map(c => `
+      <tr>
+        <td>${c.sku}</td>
+        <td>
+          <div class="player-name">${c.player}</div>
+          <div class="card-set">${c.set}</div>
+        </td>
+        <td class="hide-mobile"><span class="sport-tag">${sportEmoji(c.sport)} ${c.sport}</span></td>
+        <td class="hide-mobile">${c.year}</td>
+        <td><span class="grade-badge ${graderClass(c.grade)}">${c.grade}</span></td>
+        <td class="price-cell">$${c.price.toFixed(2)}</td>
+        <td class="hide-mobile"><span class="status-in">✓ In Stock</span></td>
+      </tr>
+    `).join('');
+  }
+
+  function filterTable() { renderTable(); }
+
+  function setFilter(sport, btn) {
+    activeFilter = sport;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderTable();
+  }
+
+  function sortTable(col) {
+    if (sortCol === col) sortAsc = !sortAsc;
+    else { sortCol = col; sortAsc = true; }
+    document.querySelectorAll('thead th').forEach((th, i) => {
+      th.classList.toggle('sorted', i === col);
+      const arrow = th.querySelector('.sort-arrow');
+      if (arrow) arrow.textContent = i === col ? (sortAsc ? '↑' : '↓') : '↕';
+    });
+    renderTable();
+  }
+
+  // Initial render
+  renderTable();
+</script>
+</body>
+</html>
