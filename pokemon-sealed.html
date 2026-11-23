@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pokémon sealed product in stock at Elburn Card Shop — booster packs, booster bundles, Elite Trainer Boxes. Delta Reign, Prismatic Evolutions, 30th Celebration, Mega Evolution, and more. 940 N Main St, Elburn IL 60119. Open 24/7." />
+  <meta name="keywords" content="Pokemon sealed product Elburn IL, booster packs Kane County, Pokemon ETB Elite Trainer Box, Delta Reign booster bundle, Prismatic Evolutions, 30th Celebration Pokemon, Mega Evolution sealed, buy Pokemon cards near me, card shop Elburn Illinois" />
+  <title>Pokémon Sealed Product — Elburn Card Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #F5C842; --gold-dk: #D4A017;
+      --dark: #1A1A2E; --dark2: #16213E;
+      --accent: #E94560; --red: #cc0000;
+      --white: #FFFFFF; --off: #F8F8F8;
+      --gray: #555555; --light: #EEEEEE;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #222; background: var(--white); }
+
+    header {
+      background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0a2010 100%);
+      color: #fff; text-align: center; padding: 52px 20px 44px; position: relative; overflow: hidden;
+    }
+    header::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 65% 25%, rgba(255,204,0,0.15) 0%, transparent 55%),
+                  radial-gradient(ellipse at 25% 80%, rgba(233,69,96,0.1) 0%, transparent 50%);
+    }
+    .logo-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 72px; height: 72px; border-radius: 18px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dk) 100%);
+      font-size: 2.2rem; margin-bottom: 16px;
+      box-shadow: 0 4px 28px rgba(245,200,66,0.5); text-decoration: none;
+    }
+    header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 900; line-height: 1.1; }
+    header h1 span { color: var(--gold); }
+    header p.tagline { font-size: clamp(0.95rem, 2.5vw, 1.1rem); color: rgba(255,255,255,0.7); margin-top: 10px; font-weight: 500; }
+    .header-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
+    .badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+    .badge.gold { background: rgba(255,215,0,0.2); border-color: rgba(255,215,0,0.5); color: var(--gold); }
+    .back-link { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .back-link:hover { text-decoration: underline; }
+
+    nav {
+      background: var(--dark); display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 4px; padding: 10px 16px; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.82rem; font-weight: 600; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+    nav a:hover, nav a.active { background: rgba(255,215,0,0.15); color: var(--gold); }
+
+    /* Filter tabs */
+    .filter-bar { background: var(--off); border-bottom: 1px solid var(--light); padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .filter-btn { background: var(--white); border: 2px solid var(--light); color: var(--gray); padding: 7px 18px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover { border-color: var(--gold); color: var(--gold-dk); }
+    .filter-btn.active { background: var(--dark); border-color: var(--dark); color: var(--gold); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    .section-title { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; text-align: center; color: var(--dark); margin-bottom: 8px; }
+    .section-sub { text-align: center; color: var(--gray); font-size: 0.95rem; margin-bottom: 32px; }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px; padding: 40px 0;
+    }
+    .product-card {
+      background: var(--white); border: 2px solid var(--light); border-radius: 14px;
+      overflow: hidden; transition: all 0.2s; display: flex; flex-direction: column;
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 8px 28px rgba(245,200,66,0.2); }
+    .product-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; background: var(--off); }
+    .product-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; }
+    .product-type { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); margin-bottom: 4px; }
+    .product-name { font-size: 0.92rem; font-weight: 800; color: var(--dark); line-height: 1.3; margin-bottom: 4px; }
+    .product-era { font-size: 0.75rem; color: var(--gray); margin-bottom: 10px; }
+    .product-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+    .in-store-badge { font-size: 0.7rem; font-weight: 700; background: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 20px; border: 1px solid #a5d6a7; }
+    .type-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+    .tag-pack   { background: rgba(33,150,243,0.1); color: #1565c0; border: 1px solid rgba(33,150,243,0.3); }
+    .tag-bundle { background: rgba(103,58,183,0.1); color: #4527a0; border: 1px solid rgba(103,58,183,0.3); }
+    .tag-etb    { background: rgba(255,152,0,0.12); color: #e65100; border: 1px solid rgba(255,152,0,0.3); }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, var(--dark) 0%, #0F3460 100%); color: #fff; text-align: center; padding: 56px 20px; }
+    .cta-section h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; margin-bottom: 10px; }
+    .cta-section h2 span { color: var(--gold); }
+    .cta-section p { color: rgba(255,255,255,0.72); max-width: 560px; margin: 0 auto 28px; font-size: 0.98rem; line-height: 1.6; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .cta-btn { display: inline-block; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .cta-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+    .cta-btn.gold { background: var(--gold); color: var(--dark); }
+    .cta-btn.outline { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 28px 20px; font-size: 0.82rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo-mark" href="index.html">⚡</a>
+  <h1>Pokémon <span>Sealed Product</span></h1>
+  <p class="tagline">Booster Packs · Booster Bundles · Elite Trainer Boxes — All In Store</p>
+  <div class="header-badges">
+    <span class="badge gold">In Store Now</span>
+    <span class="badge">Booster Packs</span>
+    <span class="badge">Bundles</span>
+    <span class="badge">ETBs</span>
+    <span class="badge">Factory Sealed</span>
+  </div>
+  <a class="back-link" href="index.html">← Back to Elburn Card Shop</a>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="index.html#bst">Buy/Sell/Trade</a>
+  <a href="index.html#hobby-boxes">Hobby Boxes</a>
+  <a href="graded-inventory.html">Graded Inventory</a>
+  <a href="pokemon-sealed.html" class="active">⚡ Pokémon Sealed</a>
+  <a href="pikachu-30th-celebration.html">Pikachu 30th</a>
+  <a href="index.html#ai-bot-section">Ask the Bot</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<!-- Filter bar -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterProducts('all', this)">All (45)</button>
+  <button class="filter-btn" onclick="filterProducts('etb', this)">ETBs (6)</button>
+  <button class="filter-btn" onclick="filterProducts('bundle', this)">Booster Bundles (17)</button>
+  <button class="filter-btn" onclick="filterProducts('pack', this)">Booster Packs (22)</button>
+</div>
+
+<!-- Product grid -->
+<section style="padding: 32px 20px 56px;">
+  <div class="container">
+    <h2 class="section-title">Pokémon Sealed — In Store Now</h2>
+    <p class="section-sub">45 items · Factory sealed · In-store only · Open 24/7</p>
+
+    <div class="product-grid" id="productGrid">
+
+      <!-- ETBs -->
+      <div class="product-card" data-type="etb">
+        <img src="images/pokemon-sealed/delta-reign-etb.jpg" alt="Delta Reign Elite Trainer Box" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Elite Trainer Box</div>
+          <div class="product-name">Delta Reign ETB</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-etb">ETB</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="etb">
+        <img src="images/pokemon-sealed/chaos-rising-etb.jpg" alt="Chaos Rising Elite Trainer Box" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Elite Trainer Box</div>
+          <div class="product-name">Chaos Rising ETB</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-etb">ETB</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="etb">
+        <img src="images/pokemon-sealed/phantasmal-flames-etb.jpg" alt="Phantasmal Flames Elite Trainer Box" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Elite Trainer Box</div>
+          <div class="product-name">Phantasmal Flames ETB</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-etb">ETB</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="etb">
+        <img src="images/pokemon-sealed/destined-rivals-etb.jpg" alt="Destined Rivals Elite Trainer Box" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Elite Trainer Box</div>
+          <div class="product-name">Destined Rivals ETB</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-etb">ETB</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="etb">
+        <img src="images/pokemon-sealed/prismatic-evolutions-etb.jpg" alt="Prismatic Evolutions Elite Trainer Box" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Elite Trainer Box</div>
+          <div class="product-name">Prismatic Evolutions ETB</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-etb">ETB</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="etb">
+        <img src="images/pokemon-sealed/mega-evolution-etb.jpg" alt="Mega Evolution Elite Trainer Box" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Elite Trainer Box</div>
+          <div class="product-name">Mega Evolution ETB</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-etb">ETB</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="etb">
+        <img src="images/pokemon-sealed/30th-celebration-etb.jpg" alt="30th Celebration Elite Trainer Box" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Elite Trainer Box</div>
+          <div class="product-name">30th Celebration ETB</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-etb">ETB</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="etb">
+        <img src="images/pokemon-sealed/vivid-voltage-etb.jpg" alt="Vivid Voltage Elite Trainer Box" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Elite Trainer Box</div>
+          <div class="product-name">Vivid Voltage ETB</div>
+          <div class="product-era">Sword &amp; Shield · 2020</div>
+          <div class="product-footer">
+            <span class="type-tag tag-etb">ETB</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booster Bundles -->
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/delta-reign-booster-bundle.jpg" alt="Delta Reign Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Delta Reign Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/chaos-rising-booster-bundle.jpg" alt="Chaos Rising Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Chaos Rising Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/phantasmal-flames-booster-bundle.jpg" alt="Phantasmal Flames Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Phantasmal Flames Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/perfect-order-booster-bundle.jpg" alt="Perfect Order Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Perfect Order Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/pitch-black-booster-bundle.jpg" alt="Pitch Black Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Pitch Black Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/white-flare-booster-bundle.jpg" alt="White Flare Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">White Flare Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/black-bolt-booster-bundle.jpg" alt="Black Bolt Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Black Bolt Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/ascended-heroes-booster-bundle.jpg" alt="Ascended Heroes Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Ascended Heroes Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/destined-rivals-booster-bundle.jpg" alt="Destined Rivals Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Destined Rivals Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/journey-together-booster-bundle.jpg" alt="Journey Together Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Journey Together Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/shrouded-fable-booster-bundle.jpg" alt="Shrouded Fable Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Shrouded Fable Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2024</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/prismatic-evolutions-booster-bundle.jpg" alt="Prismatic Evolutions Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Prismatic Evolutions Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/lost-origin-booster-bundle.jpg" alt="Lost Origin Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">Lost Origin Booster Bundle</div>
+          <div class="product-era">Sword &amp; Shield · 2022</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/sv151-booster-bundle.jpg" alt="SV151 Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">SV151 Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2023</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="bundle">
+        <img src="images/pokemon-sealed/30th-celebration-booster-bundle.jpg" alt="30th Celebration Booster Bundle" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Bundle</div>
+          <div class="product-name">30th Celebration Booster Bundle</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-bundle">Bundle</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booster Packs -->
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/delta-reign-booster-bundle.jpg" alt="Delta Reign Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Delta Reign Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/phantasmal-flames-booster-pack.jpg" alt="Phantasmal Flames Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Phantasmal Flames Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/white-flare-booster-pack.jpg" alt="White Flare Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">White Flare Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/black-bolt-booster-pack.jpg" alt="Black Bolt Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Black Bolt Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/prismatic-evolutions-booster-pack.jpg" alt="Prismatic Evolutions Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Prismatic Evolutions Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/30th-celebration-booster-pack.jpg" alt="30th Celebration Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">30th Celebration Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2026</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/mega-evolution-booster-pack.jpg" alt="Mega Evolution Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Mega Evolution Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2025</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/temporal-forces-booster-pack.jpg" alt="Temporal Forces Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Temporal Forces Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2024</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/paldean-fates-booster-pack.jpg" alt="Paldean Fates Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Paldean Fates Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2024</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/paradox-rift-booster-pack.jpg" alt="Paradox Rift Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Paradox Rift Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2023</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/obsidian-flames-booster-pack.jpg" alt="Obsidian Flames Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Obsidian Flames Booster Pack</div>
+          <div class="product-era">Scarlet &amp; Violet · 2023</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/crown-zenith-booster-pack.jpg" alt="Crown Zenith Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Crown Zenith Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2023</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/silver-tempest-booster-pack.jpg" alt="Silver Tempest Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Silver Tempest Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2022</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/lost-origin-booster-pack.jpg" alt="Lost Origin Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Lost Origin Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2022</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/astral-radiance-booster-pack.jpg" alt="Astral Radiance Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Astral Radiance Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2022</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/brilliant-stars-booster-pack.jpg" alt="Brilliant Stars Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Brilliant Stars Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2022</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/evolving-skies-booster-pack.jpg" alt="Evolving Skies Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Evolving Skies Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2021</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/chilling-reign-booster-pack.jpg" alt="Chilling Reign Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Chilling Reign Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2021</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/battle-styles-booster-pack.jpg" alt="Battle Styles Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Battle Styles Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2021</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/vivid-voltage-booster-pack.jpg" alt="Vivid Voltage Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Vivid Voltage Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2020</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/darkness-ablaze-booster-pack.jpg" alt="Darkness Ablaze Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Darkness Ablaze Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2020</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/champions-path-booster-pack.jpg" alt="Champion's Path Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Champion's Path Booster Pack</div>
+          <div class="product-era">Sword &amp; Shield · 2020</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="pack">
+        <img src="images/pokemon-sealed/steam-siege-booster-pack.jpg" alt="Steam Siege Booster Pack" loading="lazy" />
+        <div class="product-body">
+          <div class="product-type">Booster Pack</div>
+          <div class="product-name">Steam Siege Booster Pack</div>
+          <div class="product-era">XY · 2016</div>
+          <div class="product-footer">
+            <span class="type-tag tag-pack">Pack</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.product-grid -->
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>All <span>Factory Sealed</span> · In Store Now</h2>
+  <p>45 items across 3 eras — Scarlet &amp; Violet, Sword &amp; Shield, and XY. Stop in and browse, or call ahead to check on a specific set.</p>
+  <div class="cta-row">
+    <a href="tel:+16303656671" class="cta-btn gold">📞 (630) 365-6671</a>
+    <a href="https://maps.google.com/?q=940+N+Main+St+Elburn+IL+60119" target="_blank" rel="noopener" class="cta-btn outline">📍 940 N Main St, Elburn IL</a>
+    <a href="index.html#ai-bot-section" class="cta-btn outline">💬 Ask the Bot</a>
+  </div>
+</section>
+
+<footer>
+  <p>⚡ <a href="index.html">Elburn Card Shop</a> · 940 N Main St, Elburn IL 60119 · Open 24/7 · (630) 365-6671</p>
+  <p style="margin-top:8px;">Pokémon and all related names are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+
+<script>
+  function filterProducts(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card => {
+      if (type === 'all' || card.dataset.type === type) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
