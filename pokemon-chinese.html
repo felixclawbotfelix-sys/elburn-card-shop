@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Simplified Chinese Pokémon TCG sealed product in stock at Elburn Card Shop — Gem Pack booster packs (Volumes 2–7). Sylveon, Gengar, Ponyta, Floragato, Applin, Psyduck. 940 N Main St, Elburn IL 60119. Open 24/7." />
+  <meta name="keywords" content="Chinese Pokemon cards Elburn IL, Gem Pack Pokemon, Simplified Chinese TCG, Pokemon Chinese booster pack, rare Pokemon cards Illinois, Gem Pack Vol 2 Sylveon, Gem Pack Gengar, card shop Elburn IL" />
+  <title>Chinese Pokémon — Gem Packs — Elburn Card Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #F5C842; --gold-dk: #D4A017;
+      --red:  #CC0000; --red-dk: #990000;
+      --dark: #1A1A2E; --dark2: #16213E;
+      --white: #FFFFFF; --off: #F8F8F8;
+      --gray: #555555; --light: #EEEEEE;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #222; background: var(--white); }
+
+    header {
+      background: linear-gradient(135deg, #1a0a0a 0%, #2d0808 40%, #1A1A2E 100%);
+      color: #fff; text-align: center; padding: 52px 20px 44px;
+      position: relative; overflow: hidden;
+    }
+    header::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 65% 25%, rgba(220,38,38,0.2) 0%, transparent 55%),
+                  radial-gradient(ellipse at 25% 80%, rgba(245,200,66,0.12) 0%, transparent 50%);
+    }
+    .logo-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 72px; height: 72px; border-radius: 18px;
+      background: linear-gradient(135deg, var(--red) 0%, var(--red-dk) 100%);
+      font-size: 2.2rem; margin-bottom: 16px;
+      box-shadow: 0 4px 28px rgba(220,38,38,0.5); text-decoration: none;
+    }
+    header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 900; line-height: 1.1; }
+    header h1 span { color: var(--gold); }
+    header p.tagline { font-size: clamp(0.95rem, 2.5vw, 1.1rem); color: rgba(255,255,255,0.7); margin-top: 10px; font-weight: 500; }
+    .header-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
+    .badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+    .badge.red { background: rgba(220,38,38,0.2); border-color: rgba(220,38,38,0.5); color: #fca5a5; }
+    .badge.gold { background: rgba(255,215,0,0.15); border-color: rgba(255,215,0,0.4); color: var(--gold); }
+    .back-link { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .back-link:hover { text-decoration: underline; }
+
+    nav {
+      background: var(--dark); display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 4px; padding: 10px 16px; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.82rem; font-weight: 600; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+    nav a:hover, nav a.active { background: rgba(245,200,66,0.15); color: var(--gold); }
+
+    /* Intro banner */
+    .intro-banner {
+      background: linear-gradient(135deg, #fff5f5 0%, #fff8f0 100%);
+      border-bottom: 3px solid var(--red); padding: 32px 20px; text-align: center;
+    }
+    .intro-banner h2 { font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+    .intro-banner h2 span { color: var(--red-dk); }
+    .intro-banner p { max-width: 680px; margin: 0 auto 16px; color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
+    .cn-badge { display: inline-block; background: var(--red); color: #fff; font-size: 1rem; font-weight: 900; padding: 8px 24px; border-radius: 50px; letter-spacing: 0.5px; box-shadow: 0 4px 16px rgba(200,0,0,0.25); }
+
+    /* Stats */
+    .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 24px 20px; background: var(--off); border-bottom: 1px solid var(--light); }
+    .stat-box { text-align: center; min-width: 110px; }
+    .stat-box .num { font-size: 2rem; font-weight: 900; color: var(--dark); line-height: 1; }
+    .stat-box .num span { color: var(--red-dk); }
+    .stat-box .lbl { font-size: 0.75rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+    /* Grid */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    .section-title { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; text-align: center; color: var(--dark); margin-bottom: 8px; }
+    .section-sub { text-align: center; color: var(--gray); font-size: 0.95rem; margin-bottom: 32px; }
+    .accent-line { width: 48px; height: 4px; background: linear-gradient(90deg, var(--red), var(--gold)); border-radius: 2px; margin: 10px auto 0; }
+
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; padding: 40px 0; }
+
+    .product-card {
+      background: var(--white); border: 2px solid var(--light); border-radius: 16px;
+      overflow: hidden; transition: all 0.25s; display: flex; flex-direction: column;
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: var(--red); box-shadow: 0 8px 32px rgba(200,0,0,0.15); }
+    .product-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; background: var(--off); }
+
+    .product-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+    .vol-badge { display: inline-block; background: var(--red); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .product-name { font-size: 1rem; font-weight: 800; color: var(--dark); line-height: 1.3; margin-bottom: 3px; }
+    .product-cn { font-size: 0.85rem; color: var(--gray); margin-bottom: 4px; }
+    .product-type { font-size: 0.75rem; color: var(--gray); margin-bottom: 10px; }
+    .product-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .in-store-badge { font-size: 0.7rem; font-weight: 700; background: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 20px; border: 1px solid #a5d6a7; }
+    .cn-tag { font-size: 0.68rem; font-weight: 700; background: rgba(220,38,38,0.08); color: var(--red-dk); padding: 3px 8px; border-radius: 20px; border: 1px solid rgba(220,38,38,0.25); }
+
+    /* About section */
+    .about-section { background: var(--dark); color: #fff; padding: 48px 20px; }
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 32px; }
+    .about-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 20px; }
+    .about-card h3 { color: var(--gold); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .about-card p { color: rgba(255,255,255,0.75); font-size: 0.88rem; line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, #1a0a0a 0%, #1A1A2E 100%); color: #fff; text-align: center; padding: 56px 20px; }
+    .cta-section h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; margin-bottom: 10px; }
+    .cta-section h2 span { color: var(--gold); }
+    .cta-section p { color: rgba(255,255,255,0.72); max-width: 560px; margin: 0 auto 28px; font-size: 0.98rem; line-height: 1.6; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .cta-btn { display: inline-block; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .cta-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+    .cta-btn.red { background: var(--red); color: #fff; }
+    .cta-btn.gold { background: var(--gold); color: var(--dark); }
+    .cta-btn.outline { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 28px 20px; font-size: 0.82rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo-mark" href="index.html">🀄</a>
+  <h1>Chinese Pokémon <span>Gem Packs</span></h1>
+  <p class="tagline">Simplified Chinese · Factory Sealed · In Store Now</p>
+  <div class="header-badges">
+    <span class="badge red">简体中文</span>
+    <span class="badge gold">Gem Pack Series</span>
+    <span class="badge">Volumes 2–7</span>
+    <span class="badge">Factory Sealed</span>
+  </div>
+  <a class="back-link" href="index.html">← Back to Elburn Card Shop</a>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="index.html#bst">Buy/Sell/Trade</a>
+  <a href="pokemon-sealed.html">⚡ Pokémon Sealed</a>
+  <a href="graded-inventory.html">Graded Inventory</a>
+  <a href="pikachu-30th-celebration.html">Pikachu 30th</a>
+  <a href="pokemon-chinese.html" class="active">🀄 Chinese Pokémon</a>
+  <a href="index.html#ai-bot-section">Ask the Bot</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<!-- Intro -->
+<div class="intro-banner">
+  <h2>Pokémon TCG <span>Simplified Chinese</span> — Gem Pack Series</h2>
+  <p>Official Simplified Chinese Pokémon TCG product, printed and distributed exclusively for the mainland Chinese market. Each Gem Pack volume features unique artwork and exclusive promotional cards not found in English sets.</p>
+  <span class="cn-badge">宝可梦卡牌游戏 · In Store Now</span>
+</div>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-box"><div class="num"><span>6</span></div><div class="lbl">Gem Pack Volumes</div></div>
+  <div class="stat-box"><div class="num"><span>2–7</span></div><div class="lbl">Volumes In Stock</div></div>
+  <div class="stat-box"><div class="num">🀄</div><div class="lbl">Simplified Chinese</div></div>
+  <div class="stat-box"><div class="num">🔒</div><div class="lbl">Factory Sealed</div></div>
+</div>
+
+<!-- Product Grid -->
+<section style="padding: 32px 20px 56px;">
+  <div class="container">
+    <h2 class="section-title">🀄 Gem Pack Collection — In Store</h2>
+    <p class="section-sub">Official Simplified Chinese Pokémon TCG · Exclusive to mainland China market · All factory sealed</p>
+    <div class="accent-line"></div>
+
+    <div class="product-grid">
+
+      <!-- Vol 2 -->
+      <div class="product-card">
+        <img src="images/pokemon-chinese/gem-pack-vol-2-sylveon-booster-pack.jpg"
+             alt="Gem Pack Vol. 2 Sylveon Booster Pack — Simplified Chinese Pokémon TCG"
+             loading="lazy" />
+        <div class="product-body">
+          <span class="vol-badge">Vol. 2</span>
+          <div class="product-name">Gem Pack Vol. 2 — Sylveon</div>
+          <div class="product-cn">宝石包 第2弹 — 仙子伊布</div>
+          <div class="product-type">Booster Pack · Simplified Chinese</div>
+          <div class="product-footer">
+            <span class="cn-tag">🀄 Chinese</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol 3 -->
+      <div class="product-card">
+        <img src="images/pokemon-chinese/gem-pack-vol-3-gengar-promo.jpg"
+             alt="Gem Pack Vol. 3 Gengar Promo — Simplified Chinese Pokémon TCG"
+             loading="lazy" />
+        <div class="product-body">
+          <span class="vol-badge">Vol. 3</span>
+          <div class="product-name">Gem Pack Vol. 3 — Gengar</div>
+          <div class="product-cn">宝石包 第3弹 — 耿鬼</div>
+          <div class="product-type">Promo Pack · Simplified Chinese</div>
+          <div class="product-footer">
+            <span class="cn-tag">🀄 Chinese</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol 4 -->
+      <div class="product-card">
+        <img src="images/pokemon-chinese/gem-pack-vol-4-ponyta-promo.jpg"
+             alt="Gem Pack Vol. 4 Ponyta Promo — Simplified Chinese Pokémon TCG"
+             loading="lazy" />
+        <div class="product-body">
+          <span class="vol-badge">Vol. 4</span>
+          <div class="product-name">Gem Pack Vol. 4 — Ponyta</div>
+          <div class="product-cn">宝石包 第4弹 — 小火马</div>
+          <div class="product-type">Promo Pack · Simplified Chinese</div>
+          <div class="product-footer">
+            <span class="cn-tag">🀄 Chinese</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol 5 -->
+      <div class="product-card">
+        <img src="images/pokemon-chinese/gem-pack-vol-5-floragato-booster-pack.jpg"
+             alt="Gem Pack Vol. 5 Floragato Booster Pack — Simplified Chinese Pokémon TCG"
+             loading="lazy" />
+        <div class="product-body">
+          <span class="vol-badge">Vol. 5</span>
+          <div class="product-name">Gem Pack Vol. 5 — Floragato</div>
+          <div class="product-cn">宝石包 第5弹 — 花草猫</div>
+          <div class="product-type">Booster Pack · Simplified Chinese</div>
+          <div class="product-footer">
+            <span class="cn-tag">🀄 Chinese</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol 6 -->
+      <div class="product-card">
+        <img src="images/pokemon-chinese/gem-pack-vol-6-applin-booster-pack.jpg"
+             alt="Gem Pack Vol. 6 Applin Booster Pack — Simplified Chinese Pokémon TCG"
+             loading="lazy" />
+        <div class="product-body">
+          <span class="vol-badge">Vol. 6</span>
+          <div class="product-name">Gem Pack Vol. 6 — Applin</div>
+          <div class="product-cn">宝石包 第6弹 — 苹裹龙</div>
+          <div class="product-type">Booster Pack · Simplified Chinese</div>
+          <div class="product-footer">
+            <span class="cn-tag">🀄 Chinese</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol 7 -->
+      <div class="product-card">
+        <img src="images/pokemon-chinese/gem-pack-vol-7-psyduck-booster-pack.jpg"
+             alt="Gem Pack Vol. 7 Psyduck Booster Pack — Simplified Chinese Pokémon TCG"
+             loading="lazy" />
+        <div class="product-body">
+          <span class="vol-badge">Vol. 7</span>
+          <div class="product-name">Gem Pack Vol. 7 — Psyduck</div>
+          <div class="product-cn">宝石包 第7弹 — 可达鸭</div>
+          <div class="product-type">Booster Pack · Simplified Chinese</div>
+          <div class="product-footer">
+            <span class="cn-tag">🀄 Chinese</span>
+            <span class="in-store-badge">In Store</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About section -->
+<section class="about-section">
+  <div class="container">
+    <h2 class="section-title" style="color:#fff;">About Chinese Pokémon TCG</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.6);">What makes Simplified Chinese cards unique</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>🌏 Exclusive to China</h3>
+        <p>Simplified Chinese Pokémon cards are officially licensed and printed exclusively for the mainland China market. They are <strong>not</strong> available through standard English or Japanese distribution channels, making them rare and collectible outside of China.</p>
+      </div>
+      <div class="about-card">
+        <h3>💎 Gem Pack Series</h3>
+        <p>The Gem Pack (宝石包) series is a unique Chinese-exclusive product line featuring themed booster packs and promotional sets. Each volume spotlights a different Pokémon with exclusive artwork and card designs specific to the Chinese market.</p>
+      </div>
+      <div class="about-card">
+        <h3>🎴 Are They Legal?</h3>
+        <p>Chinese Pokémon TCG cards are <strong>official Pokémon products</strong> licensed by The Pokémon Company International. They are legal for play in many formats and highly collectible. Cards use the same game mechanics as English versions.</p>
+      </div>
+      <div class="about-card">
+        <h3>📦 Factory Sealed</h3>
+        <p>All Gem Packs in stock are factory sealed — untouched since production. Great for collectors who want to preserve the product, or for opening to chase the unique Chinese-exclusive pulls inside.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Rare Find — <span>In Store Now</span></h2>
+  <p>Chinese Pokémon Gem Packs are hard to find outside of China. All 6 volumes in stock, factory sealed. Stop in anytime — we're open 24/7.</p>
+  <div class="cta-row">
+    <a href="tel:+16303656671" class="cta-btn gold">📞 (630) 365-6671</a>
+    <a href="https://maps.google.com/?q=940+N+Main+St+Elburn+IL+60119" target="_blank" rel="noopener" class="cta-btn outline">📍 940 N Main St, Elburn IL</a>
+    <a href="pokemon-sealed.html" class="cta-btn outline">⚡ See All Pokémon Sealed</a>
+  </div>
+</section>
+
+<footer>
+  <p>🀄 <a href="index.html">Elburn Card Shop</a> · 940 N Main St, Elburn IL 60119 · Open 24/7 · (630) 365-6671</p>
+  <p style="margin-top:8px;">Pokémon and all related names are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc. © 2024 Pokémon.</p>
+</footer>
+
+</body>
+</html>
