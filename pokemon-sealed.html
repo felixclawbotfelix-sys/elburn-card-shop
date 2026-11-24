@@ -104,6 +104,14 @@
     @media (max-width: 480px) {
       .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
     }
+  
+    /* Chase cards */
+    .chase-toggle { width:100%; background:none; border:1px solid var(--light); border-radius:6px; padding:6px 10px; font-size:0.72rem; font-weight:700; color:var(--gray); cursor:pointer; margin-top:8px; text-align:left; transition:all 0.2s; }
+    .chase-toggle:hover { border-color:#a855f7; color:#7c3aed; background:rgba(168,85,247,0.05); }
+    .chase-list { display:none; margin-top:6px; display:none; flex-direction:column; gap:3px; }
+    .chase-list.open { display:flex; }
+    .chase-pill { font-size:0.65rem; padding:3px 7px; border-radius:4px; font-weight:600; line-height:1.3; }
+
   </style>
 </head>
 <body>
@@ -150,7 +158,7 @@
     <div class="product-grid" id="productGrid">
 
       <!-- ETBs -->
-      <div class="product-card" data-type="etb">
+      <div class="product-card" data-set="delta-reign" data-type="etb">
         <img src="images/pokemon-sealed/delta-reign-etb.jpg" alt="Delta Reign Elite Trainer Box" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Elite Trainer Box</div>
@@ -163,7 +171,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="etb">
+      <div class="product-card" data-set="chaos-rising" data-type="etb">
         <img src="images/pokemon-sealed/chaos-rising-etb.jpg" alt="Chaos Rising Elite Trainer Box" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Elite Trainer Box</div>
@@ -176,7 +184,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="etb">
+      <div class="product-card" data-set="phantasmal-flames" data-type="etb">
         <img src="images/pokemon-sealed/phantasmal-flames-etb.jpg" alt="Phantasmal Flames Elite Trainer Box" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Elite Trainer Box</div>
@@ -189,7 +197,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="etb">
+      <div class="product-card" data-set="destined-rivals" data-type="etb">
         <img src="images/pokemon-sealed/destined-rivals-etb.jpg" alt="Destined Rivals Elite Trainer Box" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Elite Trainer Box</div>
@@ -202,7 +210,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="etb">
+      <div class="product-card" data-set="prismatic-evolutions" data-type="etb">
         <img src="images/pokemon-sealed/prismatic-evolutions-etb.jpg" alt="Prismatic Evolutions Elite Trainer Box" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Elite Trainer Box</div>
@@ -215,7 +223,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="etb">
+      <div class="product-card" data-set="mega-evolution" data-type="etb">
         <img src="images/pokemon-sealed/mega-evolution-etb.jpg" alt="Mega Evolution Elite Trainer Box" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Elite Trainer Box</div>
@@ -228,7 +236,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="etb">
+      <div class="product-card" data-set="30th-celebration" data-type="etb">
         <img src="images/pokemon-sealed/30th-celebration-etb.jpg" alt="30th Celebration Elite Trainer Box" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Elite Trainer Box</div>
@@ -241,7 +249,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="etb">
+      <div class="product-card" data-set="vivid-voltage" data-type="etb">
         <img src="images/pokemon-sealed/vivid-voltage-etb.jpg" alt="Vivid Voltage Elite Trainer Box" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Elite Trainer Box</div>
@@ -255,7 +263,7 @@
       </div>
 
       <!-- Booster Bundles -->
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="delta-reign" data-type="bundle">
         <img src="images/pokemon-sealed/delta-reign-booster-bundle.jpg" alt="Delta Reign Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -268,7 +276,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="chaos-rising" data-type="bundle">
         <img src="images/pokemon-sealed/chaos-rising-booster-bundle.jpg" alt="Chaos Rising Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -281,7 +289,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="phantasmal-flames" data-type="bundle">
         <img src="images/pokemon-sealed/phantasmal-flames-booster-bundle.jpg" alt="Phantasmal Flames Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -294,7 +302,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="perfect-order" data-type="bundle">
         <img src="images/pokemon-sealed/perfect-order-booster-bundle.jpg" alt="Perfect Order Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -307,7 +315,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="pitch-black" data-type="bundle">
         <img src="images/pokemon-sealed/pitch-black-booster-bundle.jpg" alt="Pitch Black Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -320,7 +328,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="white-flare" data-type="bundle">
         <img src="images/pokemon-sealed/white-flare-booster-bundle.jpg" alt="White Flare Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -333,7 +341,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="black-bolt" data-type="bundle">
         <img src="images/pokemon-sealed/black-bolt-booster-bundle.jpg" alt="Black Bolt Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -346,7 +354,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="ascended-heroes" data-type="bundle">
         <img src="images/pokemon-sealed/ascended-heroes-booster-bundle.jpg" alt="Ascended Heroes Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -359,7 +367,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="destined-rivals" data-type="bundle">
         <img src="images/pokemon-sealed/destined-rivals-booster-bundle.jpg" alt="Destined Rivals Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -372,7 +380,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="journey-together" data-type="bundle">
         <img src="images/pokemon-sealed/journey-together-booster-bundle.jpg" alt="Journey Together Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -385,7 +393,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="shrouded-fable" data-type="bundle">
         <img src="images/pokemon-sealed/shrouded-fable-booster-bundle.jpg" alt="Shrouded Fable Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -398,7 +406,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="prismatic-evolutions" data-type="bundle">
         <img src="images/pokemon-sealed/prismatic-evolutions-booster-bundle.jpg" alt="Prismatic Evolutions Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -411,7 +419,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="lost-origin" data-type="bundle">
         <img src="images/pokemon-sealed/lost-origin-booster-bundle.jpg" alt="Lost Origin Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -424,7 +432,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="sv151" data-type="bundle">
         <img src="images/pokemon-sealed/sv151-booster-bundle.jpg" alt="SV151 Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -437,7 +445,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="bundle">
+      <div class="product-card" data-set="30th-celebration" data-type="bundle">
         <img src="images/pokemon-sealed/30th-celebration-booster-bundle.jpg" alt="30th Celebration Booster Bundle" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Bundle</div>
@@ -451,7 +459,7 @@
       </div>
 
       <!-- Booster Packs -->
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="delta-reign" data-type="pack">
         <img src="images/pokemon-sealed/delta-reign-booster-bundle.jpg" alt="Delta Reign Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -464,7 +472,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="phantasmal-flames" data-type="pack">
         <img src="images/pokemon-sealed/phantasmal-flames-booster-pack.jpg" alt="Phantasmal Flames Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -477,7 +485,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="white-flare" data-type="pack">
         <img src="images/pokemon-sealed/white-flare-booster-pack.jpg" alt="White Flare Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -490,7 +498,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="black-bolt" data-type="pack">
         <img src="images/pokemon-sealed/black-bolt-booster-pack.jpg" alt="Black Bolt Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -503,7 +511,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="prismatic-evolutions" data-type="pack">
         <img src="images/pokemon-sealed/prismatic-evolutions-booster-pack.jpg" alt="Prismatic Evolutions Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -516,7 +524,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="30th-celebration" data-type="pack">
         <img src="images/pokemon-sealed/30th-celebration-booster-pack.jpg" alt="30th Celebration Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -529,7 +537,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="mega-evolution" data-type="pack">
         <img src="images/pokemon-sealed/mega-evolution-booster-pack.jpg" alt="Mega Evolution Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -542,7 +550,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="temporal-forces" data-type="pack">
         <img src="images/pokemon-sealed/temporal-forces-booster-pack.jpg" alt="Temporal Forces Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -555,7 +563,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="paldean-fates" data-type="pack">
         <img src="images/pokemon-sealed/paldean-fates-booster-pack.jpg" alt="Paldean Fates Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -568,7 +576,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="paradox-rift" data-type="pack">
         <img src="images/pokemon-sealed/paradox-rift-booster-pack.jpg" alt="Paradox Rift Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -581,7 +589,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="obsidian-flames" data-type="pack">
         <img src="images/pokemon-sealed/obsidian-flames-booster-pack.jpg" alt="Obsidian Flames Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -594,7 +602,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="crown-zenith" data-type="pack">
         <img src="images/pokemon-sealed/crown-zenith-booster-pack.jpg" alt="Crown Zenith Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -607,7 +615,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="silver-tempest" data-type="pack">
         <img src="images/pokemon-sealed/silver-tempest-booster-pack.jpg" alt="Silver Tempest Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -620,7 +628,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="lost-origin" data-type="pack">
         <img src="images/pokemon-sealed/lost-origin-booster-pack.jpg" alt="Lost Origin Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -633,7 +641,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="astral-radiance" data-type="pack">
         <img src="images/pokemon-sealed/astral-radiance-booster-pack.jpg" alt="Astral Radiance Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -646,7 +654,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="brilliant-stars" data-type="pack">
         <img src="images/pokemon-sealed/brilliant-stars-booster-pack.jpg" alt="Brilliant Stars Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -659,7 +667,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="evolving-skies" data-type="pack">
         <img src="images/pokemon-sealed/evolving-skies-booster-pack.jpg" alt="Evolving Skies Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -672,7 +680,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="chilling-reign" data-type="pack">
         <img src="images/pokemon-sealed/chilling-reign-booster-pack.jpg" alt="Chilling Reign Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -685,7 +693,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="battle-styles" data-type="pack">
         <img src="images/pokemon-sealed/battle-styles-booster-pack.jpg" alt="Battle Styles Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -698,7 +706,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="vivid-voltage" data-type="pack">
         <img src="images/pokemon-sealed/vivid-voltage-booster-pack.jpg" alt="Vivid Voltage Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -711,7 +719,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="darkness-ablaze" data-type="pack">
         <img src="images/pokemon-sealed/darkness-ablaze-booster-pack.jpg" alt="Darkness Ablaze Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -724,7 +732,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="champions-path" data-type="pack">
         <img src="images/pokemon-sealed/champions-path-booster-pack.jpg" alt="Champion's Path Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -737,7 +745,7 @@
         </div>
       </div>
 
-      <div class="product-card" data-type="pack">
+      <div class="product-card" data-set="steam-siege" data-type="pack">
         <img src="images/pokemon-sealed/steam-siege-booster-pack.jpg" alt="Steam Siege Booster Pack" loading="lazy" />
         <div class="product-body">
           <div class="product-type">Booster Pack</div>
@@ -782,6 +790,360 @@
       }
     });
   }
+</script>
+
+
+<script>
+const CHASE_DATA = {
+  "30th-celebration": [
+    { d: 'Mew ex – Special Illustration Rare #152/128', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mewtwo ex – Special Illustration Rare #151/128', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Pikachu ex – Special Illustration Rare #149/128', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Pikachu ex – Special Illustration Rare #150/128', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Gengar ex – Special Illustration Rare #154/128', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Sylveon ex – Special Illustration Rare #153/128', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Greninja ex – Special Illustration Rare #148/128', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Jirachi ex – Special Illustration Rare #155/128', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "ascended-heroes": [
+    { d: 'Team Rocket\'s Mewtwo ex – Special Illustration Rare #281/217', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Gengar ex – Special Illustration Rare #284/217', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Dragonite ex – Special Illustration Rare #290/217', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'N\'s Zoroark ex – Special Illustration Rare #286/217', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Pikachu ex – Special Illustration Rare #276/217', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Pikachu ex – Special Illustration Rare #277/217', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Charizard Y ex – Mega Hyper Rare #294/217', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+    { d: 'Mega Dragonite ex – Mega Hyper Rare #295/217', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+  ],
+  "astral-radiance": [
+    { d: 'Origin Forme Palkia VSTAR – Secret Rare #192/189', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Origin Forme Dialga VSTAR – Secret Rare #198/189', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Origin Forme Palkia V – Ultra Rare #167/189', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Origin Forme Dialga V – Ultra Rare #177/189', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Irida – Secret Rare #204/189', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Origin Forme Palkia VSTAR – Secret Rare #208/189', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Origin Forme Dialga VSTAR – Secret Rare #210/189', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+  ],
+  "battle-styles": [
+    { d: 'Single Strike Urshifu VMAX – Secret Rare #168/163', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Rapid Strike Urshifu VMAX – Secret Rare #170/163', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Single Strike Urshifu V – Ultra Rare #151/163', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Rapid Strike Urshifu V – Ultra Rare #153/163', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Tyranitar V – Ultra Rare #155/163', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Single Strike Urshifu VMAX – Secret Rare #167/163', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Rapid Strike Urshifu VMAX – Secret Rare #169/163', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+  ],
+  "black-bolt": [
+    { d: 'Zekrom ex – Special Illustration Rare #166/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Kyurem ex – Special Illustration Rare #165/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Serperior ex – Special Illustration Rare #164/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Meloetta ex – Special Illustration Rare #167/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Genesect ex – Special Illustration Rare #169/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'N\'s Plan – Special Illustration Rare #170/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Zekrom ex – Black White Rare #172/086', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+    { d: 'Victini – Black White Rare #171/086', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+  ],
+  "brilliant-stars": [
+    { d: 'Charizard V – Ultra Rare #154/172', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Charizard VSTAR – Secret Rare #174/172', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Arceus V – Ultra Rare #166/172', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Arceus VSTAR – Secret Rare #176/172', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Arceus VSTAR – Secret Rare #184/172', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Umbreon VMAX – Ultra Rare #TG23/TG30', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Sylveon VMAX – Ultra Rare #TG15/TG30', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Umbreon V – Ultra Rare #TG22/TG30', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+  ],
+  "champions-path": [
+    { d: 'Charizard VMAX – Rainbow Rare #074/073', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+    { d: 'Charizard V – Secret Rare #079/073', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Gardevoir VMAX – Secret Rare #076/073', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Drednaw VMAX – Secret Rare #075/073', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Kabu – Secret Rare #077/073', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Piers – Secret Rare #078/073', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+  ],
+  "chaos-rising": [
+    { d: 'Mega Greninja ex – Special Illustration Rare #116/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Greninja ex – Mega Hyper Rare #122/086', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+    { d: 'Mega Floette ex – Special Illustration Rare #117/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Dragalge ex – Special Illustration Rare #118/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Cinccino ex – Special Illustration Rare #119/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'AZ\'s Tranquility – Special Illustration Rare #120/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Roxie\'s Performance – Special Illustration Rare #121/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "chilling-reign": [
+    { d: 'Shadow Rider Calyrex VMAX – Secret Rare #205/198', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Ice Rider Calyrex VMAX – Secret Rare #203/198', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Blaziken VMAX – Secret Rare #201/198', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Shadow Rider Calyrex V – Ultra Rare #172/198', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Ice Rider Calyrex V – Ultra Rare #164/198', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Celebi VMAX – Secret Rare #199/198', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Blaziken VMAX – Secret Rare #200/198', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+  ],
+  "crown-zenith": [
+    { d: 'Arceus VSTAR – Secret Rare #GG70/GG70', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Giratina VSTAR – Secret Rare #GG69/GG70', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Origin Forme Dialga VSTAR – Secret Rare #GG68/GG70', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Origin Forme Palkia VSTAR – Secret Rare #GG67/GG70', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Mewtwo VSTAR – Ultra Rare #GG44/GG70', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Hisuian Zoroark VSTAR – Ultra Rare #GG56/GG70', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Pikachu – Rare #GG30/GG70', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+    { d: 'Mew – Rare #GG10/GG70', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+  ],
+  "darkness-ablaze": [
+    { d: 'Charizard VMAX – Holo Rare VMAX #020/189', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+    { d: 'Charizard V – Holo Rare V #019/189', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+    { d: 'Eternatus VMAX – Secret Rare #192/189', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Salamence VMAX – Secret Rare #194/189', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Crobat V – Ultra Rare #182/189', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Scizor VMAX – Secret Rare #193/189', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Rose – Ultra Rare #189/189', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+  ],
+  "delta-reign": [
+    { d: 'Mega Rayquaza ex – Special Illustration Rare #138/103', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Rayquaza ex – Mega Hyper Rare #141/103', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+    { d: 'Raikou ex – Special Illustration Rare #136/103', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Golurk ex – Special Illustration Rare #137/103', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Golisopod ex – Special Illustration Rare #135/103', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Zinnia\'s Trust – Special Illustration Rare #140/103', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "destined-rivals": [
+    { d: 'Team Rocket\'s Mewtwo ex – Special Illustration Rare #231/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Ethan\'s Ho-Oh ex – Special Illustration Rare #230/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Cynthia\'s Garchomp ex – Special Illustration Rare #232/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Team Rocket\'s Moltres ex – Special Illustration Rare #229/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Team Rocket\'s Giovanni – Special Illustration Rare #238/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Team Rocket\'s Crobat ex – Special Illustration Rare #234/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Yanmega ex – Special Illustration Rare #228/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Team Rocket\'s Nidoking ex – Special Illustration Rare #233/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "evolving-skies": [
+    { d: 'Umbreon VMAX – Alternate Art Secret Rare #215/203', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Rayquaza VMAX – Alternate Art Secret Rare #218/203', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Umbreon V – Ultra Rare #189/203', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Rayquaza V – Ultra Rare #194/203', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Sylveon VMAX – Secret Rare #212/203', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Glaceon VMAX – Secret Rare #209/203', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Leafeon VMAX – Secret Rare #205/203', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Dragonite V – Ultra Rare #192/203', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+  ],
+  "first-partner-collection-s2": [
+    { d: 'Chikorita – Illustration Rare Promo #MEP 046', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Cyndaquil – Illustration Rare Promo #MEP 047', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Totodile – Illustration Rare Promo #MEP 048', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Snivy – Illustration Rare Promo #MEP 049', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Tepig – Illustration Rare Promo #MEP 050', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Oshawott – Illustration Rare Promo #MEP 051', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Grookey – Illustration Rare Promo #MEP 052', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Scorbunny – Illustration Rare Promo #MEP 053', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Sobble – Illustration Rare Promo #MEP 054', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+  ],
+  "first-partner-collection-s3": [
+    { d: 'Treecko – Illustration Rare Promo #MEP 055', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Torchic – Illustration Rare Promo #MEP 056', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Mudkip – Illustration Rare Promo #MEP 057', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Chespin – Illustration Rare Promo #MEP 058', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Fennekin – Illustration Rare Promo #MEP 059', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Froakie – Illustration Rare Promo #MEP 060', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Sprigatito – Illustration Rare Promo #MEP 061', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Fuecoco – Illustration Rare Promo #MEP 062', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Quaxly – Illustration Rare Promo #MEP 063', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+  ],
+  "fusion-strike": [
+    { d: 'Mew VMAX – Secret Rare #269/264', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Mew V – Ultra Rare #251/264', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Gengar VMAX – Secret Rare #271/264', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Espeon VMAX – Secret Rare #270/264', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Mew VMAX – Secret Rare #268/264', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+  ],
+  "journey-together": [
+    { d: 'N\'s Zoroark ex – Special Illustration Rare #185/159', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Lillie\'s Clefairy ex – Special Illustration Rare #184/159', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Iono\'s Bellibolt ex – Special Illustration Rare #183/159', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Hop\'s Zacian ex – Special Illustration Rare #186/159', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Volcanion ex – Special Illustration Rare #182/159', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Salamence ex – Special Illustration Rare #187/159', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'N\'s Zoroark ex – Hyper Rare #189/159', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+    { d: 'Iono\'s Bellibolt ex – Hyper Rare #188/159', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+  ],
+  "lost-origin": [
+    { d: 'Giratina VSTAR – Secret Rare #201/196', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Giratina V – Ultra Rare #186/196', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Hisuian Zoroark VSTAR – Secret Rare #203/196', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Volo – Secret Rare #211/196', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Giratina VSTAR – Secret Rare #212/196', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Mew VMAX – Secret Rare #TG30/TG30', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Pikachu VMAX – Ultra Rare #TG17/TG30', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+  ],
+  "mega-evolution": [
+    { d: 'Mega Lucario ex – Special Illustration Rare #179/132', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Gardevoir ex – Special Illustration Rare #178/132', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Venusaur ex – Special Illustration Rare #177/132', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Latias ex – Special Illustration Rare #181/132', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Absol ex – Special Illustration Rare #180/132', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Kangaskhan ex – Special Illustration Rare #182/132', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Lillie\'s Determination – Special Illustration Rare #184/132', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Lucario ex – Mega Hyper Rare #188/132', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+  ],
+  "obsidian-flames": [
+    { d: 'Charizard ex – Special Illustration Rare #223/197', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Charizard ex – Hyper Rare #228/197', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+    { d: 'Pidgeot ex – Special Illustration Rare #225/197', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Revavroom ex – Special Illustration Rare #224/197', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Eiscue ex – Special Illustration Rare #222/197', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Poppy – Special Illustration Rare #227/197', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Geeta – Special Illustration Rare #226/197', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "paldean-fates": [
+    { d: 'Charizard ex – Special Illustration Rare #234/091', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mew ex – Special Illustration Rare #232/091', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Gardevoir ex – Special Illustration Rare #233/091', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Iono – Special Illustration Rare #237/091', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Penny – Special Illustration Rare #239/091', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mew ex – Shiny Ultra Rare #216/091', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Gardevoir ex – Shiny Ultra Rare #217/091', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Koraidon ex – Hyper Rare #245/091', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+  ],
+  "paradox-rift": [
+    { d: 'Roaring Moon ex – Special Illustration Rare #251/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Garchomp ex – Special Illustration Rare #245/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Iron Valiant ex – Special Illustration Rare #249/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Tapu Koko ex – Special Illustration Rare #247/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Gholdengo ex – Special Illustration Rare #252/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Altaria ex – Special Illustration Rare #253/182', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "perfect-order": [
+    { d: 'Meowth ex – Special Illustration Rare #121/088', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Zygarde ex – Special Illustration Rare #120/088', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Clefable ex – Special Illustration Rare #119/088', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Starmie ex – Special Illustration Rare #118/088', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Rosa\'s Encouragement – Special Illustration Rare #123/088', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Jacinthe – Special Illustration Rare #122/088', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Zygarde ex – Mega Hyper Rare #124/088', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+  ],
+  "phantasmal-flames": [
+    { d: 'Mega Charizard X ex – Special Illustration Rare #125/094', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Charizard X ex – Mega Hyper Rare #130/094', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+    { d: 'Rotom ex – Special Illustration Rare #126/094', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Sharpedo ex – Special Illustration Rare #127/094', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Lopunny ex – Special Illustration Rare #128/094', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Dawn – Special Illustration Rare #129/094', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "pitch-black": [
+    { d: 'Mega Darkrai ex – Special Illustration Rare #116/084', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Zeraora ex – Special Illustration Rare #114/084', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Chandelure ex – Special Illustration Rare #115/084', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Morpeko ex – Special Illustration Rare #117/084', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Gladion\'s Final Battle – Special Illustration Rare #118/084', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mega Darkrai ex – Mega Hyper Rare #120/084', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+  ],
+  "prismatic-evolutions": [
+    { d: 'Umbreon ex – Special Illustration Rare #161/131', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Sylveon ex – Special Illustration Rare #156/131', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Espeon ex – Special Illustration Rare #155/131', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Leafeon ex – Special Illustration Rare #144/131', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Vaporeon ex – Special Illustration Rare #149/131', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Glaceon ex – Special Illustration Rare #150/131', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Flareon ex – Special Illustration Rare #146/131', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Eevee ex – Special Illustration Rare #167/131', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "shrouded-fable": [
+    { d: 'Okidogi ex – Special Illustration Rare #090/064', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Munkidori ex – Special Illustration Rare #091/064', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Fezandipiti ex – Special Illustration Rare #092/064', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Pecharunt ex – Special Illustration Rare #093/064', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Cassiopeia – Special Illustration Rare #094/064', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+  "silver-tempest": [
+    { d: 'Lugia VSTAR – Secret Rare #202/195', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Lugia V – Ultra Rare #186/195', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Lugia VSTAR – Secret Rare #211/195', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Serena – Secret Rare #207/195', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Regidrago VSTAR – Secret Rare #201/195', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Rayquaza VMAX – Holo Rare VMAX #TG20/TG30', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+    { d: 'Rayquaza VMAX – Secret Rare #TG29/TG30', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+  ],
+  "steam-siege": [
+    { d: 'M Gardevoir EX – Ultra Rare #112/114', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Gardevoir EX – Secret Rare #116/114', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'M Gardevoir EX – Ultra Rare #079/114', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Volcanion EX – Secret Rare #115/114', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Volcanion EX – Ultra Rare #107/114', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Magearna EX – Ultra Rare #110/114', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+  ],
+  "sv151": [
+    { d: 'Charizard ex – Special Illustration Rare #199/165', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Venusaur ex – Special Illustration Rare #198/165', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Blastoise ex – Special Illustration Rare #200/165', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Alakazam ex – Special Illustration Rare #201/165', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Zapdos ex – Special Illustration Rare #202/165', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Erika\'s Invitation – Special Illustration Rare #203/165', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Giovanni\'s Charisma – Special Illustration Rare #204/165', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Mew ex – Hyper Rare #205/165', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+  ],
+  "temporal-forces": [
+    { d: 'Walking Wake ex – Special Illustration Rare #205/162', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Gouging Fire ex – Special Illustration Rare #204/162', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Iron Leaves ex – Special Illustration Rare #203/162', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Raging Bolt ex – Special Illustration Rare #208/162', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Iron Crown ex – Special Illustration Rare #206/162', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Raging Bolt ex – Hyper Rare #218/162', col: '#b8860b', bg: 'rgba(255,215,0,0.12)', bdr: 'rgba(255,215,0,0.4)' },
+  ],
+  "vivid-voltage": [
+    { d: 'Pikachu VMAX – Secret Rare #188/185', col: '#c2410c', bg: 'rgba(249,115,22,0.1)', bdr: 'rgba(249,115,22,0.3)' },
+    { d: 'Pikachu V – Ultra Rare #170/185', col: '#1d4ed8', bg: 'rgba(59,130,246,0.1)', bdr: 'rgba(59,130,246,0.3)' },
+    { d: 'Rayquaza – Amazing Rare #138/185', col: '#065f46', bg: 'rgba(16,185,129,0.1)', bdr: 'rgba(16,185,129,0.3)' },
+    { d: 'Jirachi – Amazing Rare #119/185', col: '#065f46', bg: 'rgba(16,185,129,0.1)', bdr: 'rgba(16,185,129,0.3)' },
+    { d: 'Celebi – Amazing Rare #009/185', col: '#065f46', bg: 'rgba(16,185,129,0.1)', bdr: 'rgba(16,185,129,0.3)' },
+    { d: 'Zacian – Amazing Rare #082/185', col: '#065f46', bg: 'rgba(16,185,129,0.1)', bdr: 'rgba(16,185,129,0.3)' },
+    { d: 'Zamazenta – Amazing Rare #102/185', col: '#065f46', bg: 'rgba(16,185,129,0.1)', bdr: 'rgba(16,185,129,0.3)' },
+  ],
+  "white-flare": [
+    { d: 'Reshiram ex – Special Illustration Rare #166/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Hydreigon ex – Special Illustration Rare #169/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Keldeo ex – Special Illustration Rare #167/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Hilda – Special Illustration Rare #171/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+    { d: 'Reshiram ex – Black White Rare #173/086', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+    { d: 'Victini – Black White Rare #172/086', col: '#475569', bg: 'rgba(148,163,184,0.1)', bdr: 'rgba(148,163,184,0.3)' },
+    { d: 'Whimsicott ex – Special Illustration Rare #165/086', col: '#7c3aed', bg: 'rgba(168,85,247,0.1)', bdr: 'rgba(168,85,247,0.3)' },
+  ],
+};
+
+// Inject chase buttons into every card that has a data-set
+document.querySelectorAll('.product-card[data-set]').forEach(function(card) {
+  var sid = card.dataset.set;
+  var cards = CHASE_DATA[sid];
+  if (!cards || !cards.length) return;
+  var body = card.querySelector('.product-body');
+  if (!body) return;
+
+  // Button
+  var btn = document.createElement('button');
+  btn.className = 'chase-toggle';
+  btn.textContent = '🎯 Chase Cards (' + cards.length + ') ▾';
+  btn.style.cssText = 'width:100%;background:none;border:1px solid #eee;border-radius:6px;padding:5px 8px;font-size:0.68rem;font-weight:700;color:#555;cursor:pointer;margin-top:8px;text-align:left;transition:all 0.2s;';
+
+  // List
+  var list = document.createElement('div');
+  list.style.cssText = 'display:none;flex-direction:column;gap:3px;margin-top:5px;';
+  cards.forEach(function(c) {
+    var pill = document.createElement('div');
+    pill.style.cssText = 'font-size:0.63rem;padding:3px 7px;border-radius:4px;font-weight:600;line-height:1.35;background:' + c.bg + ';border:1px solid ' + c.bdr + ';color:' + c.col + ';';
+    pill.textContent = c.d;
+    list.appendChild(pill);
+  });
+
+  var open = false;
+  btn.addEventListener('click', function() {
+    open = !open;
+    list.style.display = open ? 'flex' : 'none';
+    btn.textContent = '🎯 Chase Cards (' + cards.length + ') ' + (open ? '▴' : '▾');
+    if (open) btn.style.borderColor = '#a855f7';
+    else btn.style.borderColor = '#eee';
+  });
+
+  body.appendChild(btn);
+  body.appendChild(list);
+});
 </script>
 
 </body>
