@@ -1,6 +1,6 @@
 {
-  "last_sync": "2026-11-16T02:00:00Z",
-  "sync_by": "Card Shop Agent — W6 Weekly Inventory Sync (Sunday 8 PM)",
+  "last_sync": "2026-11-24T22:11:00-06:00",
+  "sync_by": "Felix",
   "products": [
     {
       "id": "pokemon_001",
@@ -357,6 +357,18 @@
       "cost": null,
       "supplier": null,
       "last_updated": "2026-10-19T01:00:00Z"
+    },
+    {
+      "id": "pokemon_dr_etb_001",
+      "name": "Delta Reign ETB \u2014 Pok\u00e9mon Center",
+      "category": "Pokemon TCG",
+      "subcategory": "Elite Trainer Box",
+      "set": "Delta Reign",
+      "units": 0,
+      "units_sold": 3,
+      "status": "sold_out",
+      "last_updated": "2026-11-24T22:11:00-06:00",
+      "notes": "3 sold Black Friday Nov 24 2026 \u2014 sold out"
     }
   ]
 }
